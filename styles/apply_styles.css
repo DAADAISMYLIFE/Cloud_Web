@@ -1,0 +1,14 @@
+#hello {
+    width: 70%;
+    height: 600px;
+    margin: auto;
+    display: flex; /* 내부 콘텐츠 중앙 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    text-align: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+}

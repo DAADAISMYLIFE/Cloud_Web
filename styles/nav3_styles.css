@@ -6,14 +6,14 @@
 
 @font-face {
     font-family: 'NanumSquareB';
-    src: url('/fonts/NanumSquareB.otf') format('opentype');
+    src: url('../fonts/NanumSquareB.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'NanumSquareL';
-    src: url('/fonts/NanumSquareL.otf') format('opentype');
+    src: url('../fonts/NanumSquareL.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
