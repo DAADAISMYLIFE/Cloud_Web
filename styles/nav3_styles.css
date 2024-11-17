@@ -4,6 +4,20 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'NanumSquareB';
+    src: url('/fonts/NanumSquareB.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NanumSquareL';
+    src: url('/fonts/NanumSquareL.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -12,6 +26,7 @@ header {
     background-color: #fff;
     border-bottom: 1px solid #ddd;
     margin-bottom: 20px; /* 아래쪽 여백 추가 */
+    font-family: 'NanumSquareL', Arial, sans-serif;
 }
 
 #logo img {
@@ -20,7 +35,6 @@ header {
     margin-left: 300px;
 }
 
-/* 인증 링크 스타일 */
 #auth {
     display: flex; /* 가로 정렬 */
     align-items: center; /* 수직 중앙 정렬 */
@@ -43,6 +57,7 @@ nav {
     position: relative;
     border-radius: 8px; /* 둥근 모서리로 독립적인 느낌 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
+    font-family: 'NanumSquareB', Arial, sans-serif;
 }
 
 #nav1 {
