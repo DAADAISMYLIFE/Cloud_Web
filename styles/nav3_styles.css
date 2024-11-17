@@ -73,13 +73,13 @@ nav {
 
 #nav1 ul li {
     float: left;
-    padding: 0 30px;
+    padding: 0 60px; /* 메뉴 간 간격 */
     line-height: 80px;
 }
 
 #nav1 ul li a {
     text-decoration: none;
-    color: #fff;
+    color: #fff; /* 메뉴 폰트 설정 */
     font-size: 20px;
 }
 
