@@ -1,0 +1,112 @@
+/* 전체 레이아웃 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* 메인 콘텐츠 */
+main {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 1000px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* 폼 스타일 */
+form {
+    display: flex;
+    /*세로 방향으로 진행 linear속성 같은 느낌*/
+    flex-direction: column;
+    margin: 20px auto;
+}
+
+table {
+    text-align: center;
+    border-collapse: collapse;
+    border-top: 1px solid #444444;
+
+}
+
+th, td {
+    border-bottom: 1px solid #444444;
+    padding: 5px;
+}
+
+caption {
+    display: none;
+}
+
+.post_title {
+    text-align: left;
+}
+
+
+.list_bottom_btnbox {
+    display: flex;
+    /* Flexbox 사용 */
+    justify-content: end;
+    /* 중앙 정렬 */
+    margin: 10px;
+}
+
+.bottom_paging_box {
+    display: flex;
+    /* Flexbox 사용 */
+    justify-content: center;
+    /* 중앙 정렬 */
+    align-items: flex-end;
+    /* 수직 중앙 정렬 */
+    margin: 10px;
+    gap: 5px;
+}
+
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    resize: none;
+}
+
+/* 버튼 스타일 */
+button {
+    margin: 0px;
+    font-size: 10px;
+    width: 80px;
+    height: 40px;
+    background-color: #4285F4;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 0 0 10px;
+}
+
+button:hover {
+    background-color: #2b5aa4;
+}
+
+.button_cancle {
+    background-color: #7e7e7e;
+}
+
+.button_cancle:hover {
+    background-color: #494646;
+}
+
+form .button-container {
+    /* 버튼들을 가로로 정렬 */
+    display: flex;
+    justify-content: flex-end;
+}

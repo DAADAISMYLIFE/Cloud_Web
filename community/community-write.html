@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커뮤니티 글쓰기</title>
+    <link rel="stylesheet" href="../styles/community_styles.css"> <!-- CSS 파일 링크 -->
+    <link rel="stylesheet" href="../styles/nav3_styles.css"> <!-- CSS 파일 링크 -->
+</head>
+
+<body>
+    <header>
+        <!-- 로고 버튼 -->
+        <div id="logo">
+            <a href="https://www.google.com"><img src="../images/google.png" alt="로고" /></a>
+        </div>
+        <div id="auth">
+            <a href="#" id="login">로그인</a> | <a href="#" id="logout">회원가입</a>
+        </div>
+    </header>
+
+    <nav id="nav1">
+        <ul>
+            <li><a href="#">동아리 소개</a></li>
+            <li><a href="apply.html"> 가입신청</a></li>
+            <li><a href="#">활동내역</a></li>
+            <li><a href="#">공지사항</a></li>
+            <li><a href="./community-list.html">커뮤니티</a></li>
+            <li><a href="http://223.130.154.161:8080/openai.html"> OpenAI</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h3>커뮤니티</h3>
+        <form id="community-form" method="get" action="register.jsp" enctype="multipart/form-data">
+            <input type="text" name="title" value="" placeholder="제목을 입력하세요" required>
+            <br>
+            <textarea rows="20" cols="50" name="content" value="" placeholder="내용을 입력하세요" required></textarea>
+            <br>
+            <input type="file" name="image" value="" placeholder="업로드할 이미지를 입력하세요">
+            <br>
+            <div class="button-container">
+                <button type="submit" class="button_submit">등록</button>
+                <button type="reset" class="button_cancle">취소</button>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>
