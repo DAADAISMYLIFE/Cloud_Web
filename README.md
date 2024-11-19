@@ -14,9 +14,9 @@
 3. apply.jsp -> 신청화면 파일. 삭제 예정
 
 <h2> ※ 주의사항 </h2>
-<h3>모든 소스코드 및 이미지 파일은 다음과 같은 절대경로 형태로 표기해야 합니다</h3>
-ex) /Cloud_Web/images/google.png
+모든 소스코드 및 이미지 파일은 다음과 같은 절대경로 형태로 표기해야 합니다 <br>
+ex) /Cloud_Web/images/google.png <br>
 
-<h3> default.jsp 파일 include 방법 </h3>
-- include 를 적용하려는 파일을 .jsp로 설정. html에서는 작동 X <br>
-- body 태그 내 **<%@ include file = "/Cloud_Web/default.jsp" %>** 삽입 <br>
+default.jsp 파일 include 방법 <br>
+- include 를 적용하려는 파일을 .jsp로 설정. html에서는 작동 X
+- body 태그 내 **<%@ include file = "/Cloud_Web/default.jsp" %>** 삽입
