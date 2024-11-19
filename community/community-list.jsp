@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -12,6 +13,55 @@
 
 <body>
     <%@ include file = "/Cloud_Web/default.jsp" %>
+    <%@ page import="java.util.Date"%>
+    <%@ page import="java.util.ArrayList"%>
+    <%!
+    public class Post {
+    	int postNo;
+    	String postTitle;
+   	String postContent;
+    	String user;
+    	String createdAt;
+
+    	public Post(int no, String title, String content, String user, String createdAt) {
+        	this.postNo = no;
+        	this.postTitle = title;
+        	this.postContent = content;
+        	this.user = user;
+        	this.createdAt = createdAt;
+    	}
+	
+    	public int getPostNo() {
+       		return this.postNo;
+    	}	
+
+    	public String getPostTitle() {
+    	    	return this.postTitle;
+    	}	
+
+    	public String getPostContent() {
+        	return this.postContent;
+    	}
+
+    	public String getUser() {
+        	return this.user;
+    	}	
+
+    	public String getCreatedAt() {
+        	return this.createdAt;
+    	}
+	}
+
+    %>
+    <%
+	// 임시 데이터 5개 정도 추가
+	ArrayList<Post> posts = new ArrayList<>();
+   	posts.add(new Post(1,"동아리 운영 공지", "공지 내용입니다.", "운영자", "2024-11-18"));
+        posts.add(new Post(2,"동의대에서 제일 잘나가는 나무 ㅋㅋㅋㅋㅋ", "나무의 근황입니다.", "동의대생", "2024-11-18"));
+        posts.add(new Post(3,"나는 개벌레야...", "벌레에 관한 이야기.", "동의대생", "2024-11-18"));
+        posts.add(new Post(4,"동의대 컴소 1짱 근황", "컴퓨터 소프트웨어 학과 근황.", "동의대생", "2024-11-18"));
+        posts.add(new Post(5,"잘자해줘", "잘자라는 메시지.", "동의대생", "2024-11-18"));
+    %>
     <main>
         <h3>커뮤니티</h3>
         <article>
@@ -22,7 +72,7 @@
                         <col style="width:7%">
                         <col>
                         <col style="width:18%">
-                        <col style="width:6%">
+                        <col style="width:10%">
                     </colgroup>
 
                     <thead>
@@ -34,47 +84,16 @@
                         </tr>
                     </thead>
                     <tbody>
+			<% for (Post post : posts) { %>
                         <tr class="ub-content">
-                            <td class="post_num">1</td>
+                            <td class="post_num"><%= post.getPostNo() %></td>
                             <td class="post_title">
-                                <a href="javascript:;" onclick=""><b>동아리 운영 공지</b></a>
+                                <a href="javascript:;" onclick=""><%= post.getPostTitle() %></a>
                             </td>
-                            <td class="post_writer"><b>운영자</b></td>
-                            <td class="post_date">24/11/18</td>
+                            <td class="post_writer"><b><%= post.getUser() %></b></td>
+                            <td class="post_date"><%= post.getCreatedAt() %></td>
                         </tr>
-
-                        <tr class="ub-content">
-                            <td class="post_num">2</td>
-                            <td class="post_title">
-                                <a href="">동의대에서 제일 잘나가는 나무 ㅋㅋㅋㅋㅋ</a>
-                            </td>
-                            <td class="post_writer">동의대생</td>
-                            <td class="post_date">23:08</td>
-                        </tr>
-                        <tr class="ub-content">
-                            <td class="post_num">3</td>
-                            <td class="post_title">
-                                <a href="">나는 개벌레야...</a>
-                            </td>
-                            <td class="post_writer">동의대생</td>
-                            <td class="post_date">23:16</td>
-                        </tr>
-                        <tr class="ub-content">
-                            <td class="post_num">4</td>
-                            <td class="post_title">
-                                <a href="">동의대 컴소 1짱 근황</a>
-                            </td>
-                            <td class="post_writer">동의대생</td>
-                            <td class="post_date">23:22</td>
-                        </tr>
-                        <tr class="ub-content">
-                            <td class="post_num">5</td>
-                            <td class="post_title">
-                                <a href="">잘자해줘</a>
-                            </td>
-                            <td class="post_writer">동의대생</td>
-                            <td class="post_date">23:26</td>
-                        </tr>
+                    	<% } %>
                     </tbody>
                 </table>
             </div>
