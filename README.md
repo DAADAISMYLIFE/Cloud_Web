@@ -15,7 +15,7 @@
 
 <h2> ※ 주의사항 </h2>
 1. 모든 소스코드 및 이미지 파일은 다음과 같은 절대경로 형태로 표기해야 합니다 <br>
-ex) /Cloud_Web/images/google.png
+ex) /Cloud_Web/images/google.png <br>
 
 2. default.jsp 파일 include 방법
 - include 를 적용하려는 파일을 .jsp로 설정. html에서는 작동 X
