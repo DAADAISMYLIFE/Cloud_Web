@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -5,32 +7,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>커뮤니티 글쓰기</title>
-    <link rel="stylesheet" href="../styles/community_styles.css"> <!-- CSS 파일 링크 -->
-    <link rel="stylesheet" href="../styles/nav3_styles.css"> <!-- CSS 파일 링크 -->
+    <link rel="stylesheet" href="/Cloud_Web/styles/community_styles.css"> <!-- CSS 파일 링크 -->
 </head>
 
 <body>
-    <header>
-        <!-- 로고 버튼 -->
-        <div id="logo">
-            <a href="https://www.google.com"><img src="../images/google.png" alt="로고" /></a>
-        </div>
-        <div id="auth">
-            <a href="#" id="login">로그인</a> | <a href="#" id="logout">회원가입</a>
-        </div>
-    </header>
-
-    <nav id="nav1">
-        <ul>
-            <li><a href="#">동아리 소개</a></li>
-            <li><a href="apply.html"> 가입신청</a></li>
-            <li><a href="#">활동내역</a></li>
-            <li><a href="#">공지사항</a></li>
-            <li><a href="./community-list.html">커뮤니티</a></li>
-            <li><a href="http://223.130.154.161:8080/openai.html"> OpenAI</a></li>
-        </ul>
-    </nav>
-
+    <%@ include file = "/Cloud_Web/default.jsp" %>
     <main>
         <h3>커뮤니티</h3>
         <form id="community-form" method="get" action="register.jsp" enctype="multipart/form-data">
