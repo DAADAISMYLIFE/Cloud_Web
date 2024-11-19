@@ -7,7 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>웹개발 홈페이지</title>
-        <link rel="stylesheet" href="/Cloud_Web/styles/nav3_styles.css">
+        <link rel="stylesheet" href="/Cloud_Web/styles/nav4_styles.css">
     </head>
 
     <header>
@@ -16,7 +16,7 @@
             <a href="/Cloud_Web/index.jsp"><img src="/Cloud_Web/images/google.png" alt="로고" /></a>
         </div>
         <div id="auth">
-            <a href="#" id="login">로그인</a> | <a href="#" id="logout">회원가입</a>
+            <a href="/Cloud_Web/login/loginPage.jsp" id="login">로그인</a> | <a href="#" id="logout">회원가입</a>
         </div>
     </header>
 
