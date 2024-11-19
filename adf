@@ -1,0 +1,105 @@
+[33mcommit eb9c5b0d1f312a5ea4195b46e9c6b9e28a4c0281[m[33m ([m[1;36mHEAD -> [m[1;32mDevelop_Mk.I[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Merge: e2ffb64 c3cd07c
+Author: Hoshikawa-Haruki <140823985+Hoshikawa-Haruki@users.noreply.github.com>
+Date:   Tue Nov 19 00:38:05 2024 +0900
+
+    Merge pull request #1 from DAADAISMYLIFE/main
+    
+    커뮤니티 - 글 목록, 글 작성 페이지 제작
+
+[33mcommit c3cd07c2909df699fc49e442656c6a8b2c938e8e[m
+Merge: 059adee e2ffb64
+Author: DAADAISMYLIFE <115148898+DAADAISMYLIFE@users.noreply.github.com>
+Date:   Tue Nov 19 00:28:48 2024 +0900
+
+    Merge branch 'Hoshikawa-Haruki:main' into main
+
+[33mcommit 059adee743eaf7c45bd6eff27f016825f988e652[m
+Author: DAADAISMYLIFE <qkekdhd@naver.com>
+Date:   Tue Nov 19 00:26:35 2024 +0900
+
+    커뮤니티 - 글 목록, 글 작성 페이지 제작
+    
+    커뮤니티 - 글 목록, 글 작성 페이지 제작
+
+[33mcommit e2ffb644d98ccc3d751c889d7993a90a8fa8fd0b[m
+Author: Hoshikawa-Haruki <140823985+Hoshikawa-Haruki@users.noreply.github.com>
+Date:   Mon Nov 18 21:42:13 2024 +0900
+
+    Update README.md
+
+[33mcommit 30b4eb2e8ba68dd2312ea4058c4f222050d7abbb[m
+Author: Hoshikawa-Haruki <140823985+Hoshikawa-Haruki@users.noreply.github.com>
+Date:   Sun Nov 17 20:13:28 2024 +0900
+
+    폰트경로 / 가입신청화면
+    
+    폰트경로 수정
+    가입신청화면 페이지만 생성
+
+[33mcommit 21143e6fc1ca2bd201c4eb9d35a8c19e0d6295b9[m
+Author: Hoshikawa-Haruki <140823985+Hoshikawa-Haruki@users.noreply.github.com>
+Date:   Sun Nov 17 15:28:30 2024 +0900
+
+    메뉴 간격 조정
+
+[33mcommit 8a71236cd383f2b6cc5c44ef16c67b6528496202[m
+Author: Hoshikawa-Haruki <140823985+Hoshikawa-Haruki@users.noreply.github.com>
+Date:   Sun Nov 17 15:21:23 2024 +0900
+
+    readme 수정
+
+[33mcommit d72b0c5b167368e5df34c298d18aff08ce5377cc[m
+Merge: 0fc2154 e1bd509
+Author: Hoshikawa-Haruki <140823985+Hoshikawa-Haruki@users.noreply.github.com>
+Date:   Sun Nov 17 15:18:26 2024 +0900
+
+    Merge branch 'main' of https://github.com/Hoshikawa-Haruki/Cloud_Web
+
+[33mcommit 0fc21547bb35ff1410bd0546024407c1f719d8be[m
+Author: Hoshikawa-Haruki <140823985+Hoshikawa-Haruki@users.noreply.github.com>
+Date:   Sun Nov 17 15:18:06 2024 +0900
+
+    폰트 적용
+
+[33mcommit e1bd50921b537516e55fc8be0e849c303408ac46[m
+Author: Hoshikawa-Haruki <140823985+Hoshikawa-Haruki@users.noreply.github.com>
+Date:   Sun Nov 17 14:57:09 2024 +0900
+
+    Update README.md
+
+[33mcommit 66c59f562fa7b0dc77523b69cba87e95faa6ff48[m
+Author: Hoshikawa-Haruki <140823985+Hoshikawa-Haruki@users.noreply.github.com>
+Date:   Sun Nov 17 14:53:25 2024 +0900
+
+    jsp 한글깨짐 수정
+
+[33mcommit a9af4c704463452a66077bab262fd7c4dc0f6a4c[m
+Author: Hoshikawa-Haruki <140823985+Hoshikawa-Haruki@users.noreply.github.com>
+Date:   Sun Nov 17 14:50:16 2024 +0900
+
+    강순우가 파일위치 바꾸라함
+
+[33mcommit 4b7ba4e78c609c3ba84f860eb71825814786c4f1[m
+Author: Hoshikawa-Haruki <140823985+Hoshikawa-Haruki@users.noreply.github.com>
+Date:   Sun Nov 17 14:47:10 2024 +0900
+
+    Add files via upload
+
+[33mcommit af1c76d402c222608d09906f06fc45716ca7092c[m
+Author: Hoshikawa-Haruki <140823985+Hoshikawa-Haruki@users.noreply.github.com>
+Date:   Sun Nov 17 14:46:00 2024 +0900
+
+    Update README.md
+
+[33mcommit 06e95691908bac434dc2d6dd10c7ce8d524feea5[m
+Author: Hoshikawa-Haruki <140823985+Hoshikawa-Haruki@users.noreply.github.com>
+Date:   Sun Nov 17 14:45:47 2024 +0900
+
+    Update README.md
+
+[33mcommit 486b79727b455a325f3327e5ecd67965500f4aef[m
+Author: Hoshikawa-Haruki <140823985+Hoshikawa-Haruki@users.noreply.github.com>
+Date:   Sun Nov 17 14:44:10 2024 +0900
+
+    Initial commit
