@@ -18,5 +18,5 @@
 ex) /Cloud_Web/images/google.png <br>
 
 <h3> default.jsp 파일 include 방법 </h2>
-- include 를 적용하려는 파일을 .jsp로 설정. html에서는 작동 X
+- include 를 적용하려는 파일을 .jsp로 설정. html에서는 작동 X <br>
 - body 태그 내 **<%@ include file = "/Cloud_Web/default.jsp" %>** 삽입
