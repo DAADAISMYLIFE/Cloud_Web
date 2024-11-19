@@ -16,7 +16,7 @@
             <a href="/Cloud_Web/index.jsp"><img src="/Cloud_Web/images/google.png" alt="로고" /></a>
         </div>
         <div id="auth">
-            <a href="#" id="login">로그인</a> | <a href="#" id="logout">회원가입</a>
+            <a href="/Cloud_Web/login/loginPage.jsp" id="login">로그인</a> | <a href="#" id="logout">회원가입</a>
         </div>
     </header>
 
