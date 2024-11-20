@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>커뮤니티 글쓰기</title>
+    <title>활동내역 글쓰기</title>
     <link rel="stylesheet" href="/Cloud_Web/styles/community_styles.css"> <!-- CSS 파일 링크 -->
 </head>
 
@@ -16,31 +16,31 @@
     <%@ page import="java.util.Date"%>
     <%@ page import="java.util.ArrayList"%>
     <%!
-    public class Post {
-    	int postNo;
-    	String postTitle;
-   	String postContent;
+    public class Activity {
+    	int activityNo;
+    	String activityTitle;
+   	String activityContent;
     	String user;
     	String createdAt;
 
-    	public Post(int no, String title, String content, String user, String createdAt) {
-        	this.postNo = no;
-        	this.postTitle = title;
-        	this.postContent = content;
+    	public Activity(int no, String title, String content, String user, String createdAt) {
+        	this.activityNo = no;
+        	this.activityTitle = title;
+        	this.activityContent = content;
         	this.user = user;
         	this.createdAt = createdAt;
     	}
 	
-    	public int getPostNo() {
-       		return this.postNo;
+    	public int getActivityNo() {
+       		return this.activityNo;
     	}	
 
-    	public String getPostTitle() {
-    	    	return this.postTitle;
+    	public String getActivityTitle() {
+    	    	return this.activityTitle;
     	}	
 
-    	public String getPostContent() {
-        	return this.postContent;
+    	public String getActivityContent() {
+        	return this.activityContent;
     	}
 
     	public String getUser() {
@@ -55,19 +55,19 @@
     %>
     <%
 	// 임시 데이터 5개 정도 추가
-	ArrayList<Post> posts = new ArrayList<>();
-   	posts.add(new Post(1,"동아리 운영 공지", "공지 내용입니다.", "운영자", "2024-11-18"));
-        posts.add(new Post(2,"동의대에서 제일 잘나가는 나무 ㅋㅋㅋㅋㅋ", "나무의 근황입니다.", "동의대생", "2024-11-18"));
-        posts.add(new Post(3,"나는 개벌레야...", "벌레에 관한 이야기.", "동의대생", "2024-11-18"));
-        posts.add(new Post(4,"동의대 컴소 1짱 근황", "컴퓨터 소프트웨어 학과 근황.", "동의대생", "2024-11-18"));
-        posts.add(new Post(5,"잘자해줘", "잘자라는 메시지.", "동의대생", "2024-11-18"));
+	ArrayList<Activity> activities = new ArrayList<>();
+   	activities.add(new Activity(1,"대회 참여 1등 수상!!", "공지 내용입니다.", "운영자", "2024-11-18"));
+        activities.add(new Activity(2,"11월 2주차 발표", "나무의 근황입니다.", "운영자", "2024-11-18"));
+        activities.add(new Activity(3,"11월 2주차 발표 수상 내역", "벌레에 관한 이야기.", "운영자", "2024-11-18"));
+        activities.add(new Activity(4,"[24년도 3분기 순위 발표]", "컴퓨터 소프트웨어 학과 근황.", "운영자", "2024-11-18"));
+        activities.add(new Activity(5,"16주차 스터디 내용", "잘자라는 메시지.", "운영자", "2024-11-18"));
     %>
     <main>
-        <h3>커뮤니티</h3>
+        <h3>활동내역</h3>
         <article>
             <div>
                 <table>
-                    <caption>커뮤니티 게시글 리스트</caption>
+                    <caption>활동내역 게시글 리스트</caption>
                     <colgroup>
                         <col style="width:7%">
                         <col>
@@ -84,23 +84,20 @@
                         </tr>
                     </thead>
                     <tbody>
-			<% for (Post post : posts) { %>
+			<% for (Activity activity : activities) { %>
                         <tr class="ub-content">
-                            <td class="post_num"><%= post.getPostNo() %></td>
-                            <td class="post_title">
-                                <a href="javascript:;" onclick=""><%= post.getPostTitle() %></a>
+                            <td class="activity_num"><%= activity.getActivityNo() %></td>
+                            <td class="activity_title">
+                                <a href="javascript:;" onclick=""><%= activity.getActivityTitle() %></a>
                             </td>
-                            <td class="post_writer"><b><%= post.getUser() %></b></td>
-                            <td class="post_date"><%= post.getCreatedAt() %></td>
+                            <td class="activity_writer"><b><%= activity.getUser() %></b></td>
+                            <td class="activity_date"><%= activity.getCreatedAt() %></td>
                         </tr>
                     	<% } %>
                     </tbody>
                 </table>
             </div>
             <div class="bottom_elements">
-                <div class="list_bottom_btnbox">
-                    <a href="community-write.jsp"><button>글쓰기</button></a>
-                </div>
                 <div class="bottom_paging_box">
                     <em>1</em>
                     <a href="page=2">2</a>

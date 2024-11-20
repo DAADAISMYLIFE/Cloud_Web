@@ -16,31 +16,31 @@
     <%@ page import="java.util.Date"%>
     <%@ page import="java.util.ArrayList"%>
     <%!
-    public class Post {
-    	int postNo;
-    	String postTitle;
-   	String postContent;
+    public class Notification {
+    	int notiNo;
+    	String notiTitle;
+   	String notiContent;
     	String user;
     	String createdAt;
 
-    	public Post(int no, String title, String content, String user, String createdAt) {
-        	this.postNo = no;
-        	this.postTitle = title;
-        	this.postContent = content;
+    	public Notification(int no, String title, String content, String user, String createdAt) {
+        	this.notiNo = no;
+        	this.notiTitle = title;
+        	this.notiContent = content;
         	this.user = user;
         	this.createdAt = createdAt;
     	}
 	
-    	public int getPostNo() {
-       		return this.postNo;
+    	public int getNotificationNo() {
+       		return this.notiNo;
     	}	
 
-    	public String getPostTitle() {
-    	    	return this.postTitle;
+    	public String getNotificationTitle() {
+    	    	return this.notiTitle;
     	}	
 
-    	public String getPostContent() {
-        	return this.postContent;
+    	public String getNotificationContent() {
+        	return this.notiContent;
     	}
 
     	public String getUser() {
@@ -55,19 +55,19 @@
     %>
     <%
 	// 임시 데이터 5개 정도 추가
-	ArrayList<Post> posts = new ArrayList<>();
-   	posts.add(new Post(1,"동아리 운영 공지", "공지 내용입니다.", "운영자", "2024-11-18"));
-        posts.add(new Post(2,"동의대에서 제일 잘나가는 나무 ㅋㅋㅋㅋㅋ", "나무의 근황입니다.", "동의대생", "2024-11-18"));
-        posts.add(new Post(3,"나는 개벌레야...", "벌레에 관한 이야기.", "동의대생", "2024-11-18"));
-        posts.add(new Post(4,"동의대 컴소 1짱 근황", "컴퓨터 소프트웨어 학과 근황.", "동의대생", "2024-11-18"));
-        posts.add(new Post(5,"잘자해줘", "잘자라는 메시지.", "동의대생", "2024-11-18"));
+	ArrayList<Notification> notis = new ArrayList<>();
+   	notis.add(new Notification(1,"동아리 운영 공지", "공지 내용입니다.", "운영자", "2024-11-18"));
+        notis.add(new Notification(2,"동아리방 모니터 부순사람 빨리 나오세요.", "나무의 근황입니다.", "운영자", "2024-11-18"));
+        notis.add(new Notification(3,"24주차 발표 공지", "벌레에 관한 이야기.", "운영자", "2024-11-18"));
+        notis.add(new Notification(4,"소프트웨어 경진대회 대회 안내", "컴퓨터 소프트웨어 학과 근황.", "운영자", "2024-11-18"));
+        notis.add(new Notification(5,"내년엔 더 열심하 하겠습니다.", "잘자라는 메시지.", "운영자", "2024-11-18"));
     %>
     <main>
-        <h3>커뮤니티</h3>
+        <h3>공지사항</h3>
         <article>
             <div>
                 <table>
-                    <caption>커뮤니티 게시글 리스트</caption>
+                    <caption>공지사항 리스트</caption>
                     <colgroup>
                         <col style="width:7%">
                         <col>
@@ -84,23 +84,20 @@
                         </tr>
                     </thead>
                     <tbody>
-			<% for (Post post : posts) { %>
+			<% for (Notification noti : notis) { %>
                         <tr class="ub-content">
-                            <td class="post_num"><%= post.getPostNo() %></td>
-                            <td class="post_title">
-                                <a href="javascript:;" onclick=""><%= post.getPostTitle() %></a>
+                            <td class="noti_num"><%= noti.getNotificationNo() %></td>
+                            <td class="noti_title">
+                                <a href="javascript:;" onclick=""><%= noti.getNotificationTitle() %></a>
                             </td>
-                            <td class="post_writer"><b><%= post.getUser() %></b></td>
-                            <td class="post_date"><%= post.getCreatedAt() %></td>
+                            <td class="noti_writer"><b><%= noti.getUser() %></b></td>
+                            <td class="noti_date"><%= noti.getCreatedAt() %></td>
                         </tr>
                     	<% } %>
                     </tbody>
                 </table>
             </div>
             <div class="bottom_elements">
-                <div class="list_bottom_btnbox">
-                    <a href="community-write.jsp"><button>글쓰기</button></a>
-                </div>
                 <div class="bottom_paging_box">
                     <em>1</em>
                     <a href="page=2">2</a>
