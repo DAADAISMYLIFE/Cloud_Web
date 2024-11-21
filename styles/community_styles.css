@@ -10,10 +10,11 @@ body {
 main {
     margin: 20px auto;
     width: 80%;
-    max-width: 1000px;
+    max-width: 1280px;
+    min-width: 860px;
     background-color: #fff;
     border: 2px solid #ccc;
-    padding: 20px;
+    padding : 16px;
     border-radius: 5px;
 }
 
@@ -25,11 +26,49 @@ form {
     margin: 20px auto;
 }
 
+.activity thead {
+	display: none;
+}
+
+.activity tbody{
+	text-align: left;
+}
+
+.activity_title {
+    font-weight: bold;
+    font-size: 110%;
+    border-bottom: 0px;
+    height: 20px; /* 고정 높이 */
+    overflow: hidden; /* 넘치는 텍스트 숨기기 */
+}
+.activity_content {
+    vertical-align: top;
+    height: 80px;
+    overflow: hidden; /* 넘치는 내용 숨김 */
+}
+
+.activity_image {
+    width: 100%; /* 셀의 너비에 맞춤 */
+    height: 100px; /* 고정 높이 설정 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    position: relative; /* 이미지 잘리기 위한 위치 조정 */
+}
+
+.activity_image img {
+    width: 100%; /* 셀 너비에 맞춤 */
+    height: 100%; /* 셀 높이에 맞춤 */
+    object-fit: cover; /* 비율 유지하며 셀 크기에 맞춤 */
+    object-position: center; /* 중심부 기준으로 잘림 */
+}
+
 table {
+    width: 100%; 
+    max-width: 920px;
+    min-width: 860px;
     text-align: center;
     border-collapse: collapse;
     border-top: 1px solid #444444;
-
+    margin: 0 auto; /* 수평 중앙 정렬 */
 }
 
 th, td {
