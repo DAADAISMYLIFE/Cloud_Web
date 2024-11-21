@@ -1,0 +1,82 @@
+.signupSection {
+    position: relative; /* 자식 요소의 위치를 상대적으로 설정 */
+    width: 500px;
+    height: 700px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.signupForm{
+    position : absolute;
+}
+
+.signupForm table{
+    border-collapse: separate; /* 셀 간의 경계를 분리 */
+    border-spacing: 15px 20px /* 셀 간의 간격을 10px로 설정 */
+}
+
+.signupForm label{
+    font-size: 20px;
+}
+
+.signupForm input[type="text"] {
+    font-size: 18px;
+    border: 2px solid lightgrey;
+    border-radius: 8px;
+    outline: none;
+    width: 98%;
+    height: 50px;
+    text-indent: 15px;
+}
+
+.signupForm input[type="password"] {
+    font-size: 18px;
+    border: 2px solid lightgrey;
+    border-radius: 8px;
+    outline: none;
+    width: 98%;
+    height: 50px;
+    text-indent: 15px;
+}
+
+.signupForm input[type="email"] {
+    font-size: 18px;
+    border: 2px solid lightgrey;
+    border-radius: 8px;
+    outline: none;
+    width: 98%;
+    height: 50px;
+    text-indent: 15px;
+}
+
+.signupForm input[type="tel"] {
+    font-size: 18px;
+    border: 2px solid lightgrey;
+    border-radius: 8px;
+    outline: none;
+    width: 98%;
+    height: 50px;
+    text-indent: 15px;
+}
+
+.submitBtn {
+    width: 98%;
+    padding: 20px;
+    background-color: #4285F4;
+    color: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    outline: none;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+.submitBtn:hover {
+    background-color: #357ae8;
+}
