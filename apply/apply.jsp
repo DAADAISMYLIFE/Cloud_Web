@@ -7,40 +7,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>웹개발 홈페이지</title>
-        <link rel="stylesheet" href="../styles/nav3_styles.css">
-        <link rel="stylesheet" href="../styles/apply_styles.css">
+        <link rel="stylesheet" href="/Cloud_Web/styles/nav3_styles.css">
+        <link rel="stylesheet" href="/Cloud_Web/styles/apply_styles.css">
     </head>
 
     <body>
-
-        <header>
-            <!-- 로고 버튼 -->
-            <div id="logo">
-                <a href="https://www.google.com"><img src="../images/google.png" alt="로고" /></a>
-            </div>
-            <div id="auth">
-                <a href="#" id="login">로그인</a> | <a href="#" id="logout">회원가입</a>
-            </div>
-        </header>
-
-        <nav id="nav1">
-            <ul>
-                <li><a href="#">동아리 소개</a></li>
-                <li><a href="#">가입신청</a></li>
-                <li><a href="#">활동내역</a></li>
-                <li><a href="#">공지사항</a></li>
-                <li><a href="#">커뮤니티</a></li>
-                <li><a href="http://223.130.154.161:8080/openai.html"> OpenAI</a></li>
-            </ul>
-        </nav>
-
-        
+        <%@ include file = "/Cloud_Web/default.jsp" %>
         <section id="request">
 
             <article id="inviteImg">
                 <h2>동아리 가입 신청서</h2>
                 <p>자신을 자유롭게 소개 해 보세요. 아무렇게나 말씀해도 좋아요.</p>
-                <img src="/images/invite.jpg" alt="가입신청" />
+                <img src="/Cloud_Web/images/invite.jpg" alt="가입신청" />
             </article>
 
 

@@ -23,7 +23,7 @@
     <nav id="nav1">
         <ul>
             <li><a href="#">동아리 소개</a></li>
-            <li><a href="#">가입신청</a></li>
+	    <li><a href="/Cloud_Web/apply/apply.jsp">가입신청</a></li>
             <li><a href="/Cloud_Web/activity/activity-list.jsp">활동내역</a></li>
             <li><a href="/Cloud_Web/notification/notification-list.jsp">공지사항</a></li>
             <li><a href="/Cloud_Web/community/community-list.jsp"> 커뮤니티</a></li>
