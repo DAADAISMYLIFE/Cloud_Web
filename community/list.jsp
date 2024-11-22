@@ -56,7 +56,7 @@
             </div>
             <div class="bottom_elements">
                 <div class="list_bottom_btnbox">
-                    <a href="community-write.jsp"><button>글쓰기</button></a>
+                    <a href="write.jsp"><button>글쓰기</button></a>
                 </div>
                 <div class="bottom_paging_box">
                     <em>1</em>
