@@ -11,7 +11,6 @@ main {
     margin: 20px auto;
     width: 80%;
     max-width: 1280px;
-    min-width: 860px;
     background-color: #fff;
     border: 2px solid #ccc;
     padding : 16px;
@@ -68,12 +67,11 @@ table {
     text-align: center;
     border-collapse: collapse;
     border-top: 1px solid #444444;
-    margin: 0 auto; /* 수평 중앙 정렬 */
 }
 
 th, td {
     border-bottom: 1px solid #444444;
-    padding: 5px;
+    padding: 8px;
 }
 
 caption {
