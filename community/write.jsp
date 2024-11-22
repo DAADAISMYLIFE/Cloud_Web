@@ -14,7 +14,7 @@
     <%@ include file = "/Cloud_Web/default.jsp" %>
     <main>
         <h3>커뮤니티</h3>
-        <form id="community-form" method="get" action="register.jsp" enctype="multipart/form-data">
+        <form id="community-form" method="get" action="register.jsp">
             <input type="text" name="title" value="" placeholder="제목을 입력하세요" required>
             <br>
             <textarea rows="20" cols="50" name="content" value="" placeholder="내용을 입력하세요" required></textarea>
