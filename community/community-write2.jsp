@@ -17,8 +17,8 @@
         <h3>커뮤니티</h3>
         <%
             // 폼에서 데이터 처리
-            String title = "qwe"; //request.getParameter("title");
-            String content = "qwe";//request.getParameter("content");
+            String title = request.getParameter("title");
+            String content = request.getParameter("content");
             String user = "작성자"; 
             String createdAt = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()); // 현재 날짜
 
