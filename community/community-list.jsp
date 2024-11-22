@@ -63,7 +63,6 @@
         posts.add(new Post(5,"잘자해줘", "잘자라는 메시지.", "동의대생", "2024-11-18"));
     %>
     <main>
-        <h3>커뮤니티</h3>
         <article>
             <div>
                 <table>
