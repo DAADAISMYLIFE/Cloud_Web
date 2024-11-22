@@ -15,24 +15,6 @@
     <%@ include file = "/Cloud_Web/default.jsp" %>
     <main>
         <h3>커뮤니티</h3>
-        <%
-            // 폼에서 데이터 처리
-            String title = "qwe"; //request.getParameter("title");
-            String content = "qwe";//request.getParameter("content");
-            String user = "작성자"; 
-            String createdAt = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()); // 현재 날짜
-
-            if (title != null && content != null) {
-                // 게시물 객체 생성
-                Post newPost = new Post(0, title, content, user, createdAt); 
-                
-                PostDAO postDAO = new PostDAO();
-                postDAO.addPost(newPost); // 게시물 추가
-
-                // 추가 후에 성공 메시지 또는 다른 페이지로 리다이렉트
-                response.sendRedirect("community-list.jsp"); 
-            }
-        %>
         <form id="community-form" method="post" action="register.jsp" enctype="multipart/form-data">
             <input type="text" name="title" value="" placeholder="제목을 입력하세요" required>
             <br>
