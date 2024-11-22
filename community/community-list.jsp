@@ -1,3 +1,6 @@
+<%@ page import="java.util.List" %>
+<%@ page import="cloud.Post" %>
+<%@ page import="cloud.PostDAO" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -12,6 +15,35 @@
 </head>
 
 <body>
+    <% try{ %>
+    <%@ include file = "/Cloud_Web/dbconnect.jsp" %>
+    <% String query = "SELECT * FROM posts"; 
+	rs = stmt.executeQuery(query);
+        // Print Result (Run by Query)
+        while(rs.next()) {
+    %>
+    <tr class="ub-content">
+    	<td class="post_num"><%= rs.getInt("postNo") %></td>
+    	<td class="post_title">
+    		<a href="javascript:;" onclick=""><%= rs.getString("postTitle") %></a>
+    	</td>
+    	<td class="post_writer"><b><%= rs.getString("user") %></b></td>
+    		<td class="post_date"><%= rs.getString("createdAt") %></td>
+    </tr>
+    <% } 
+    	} catch(SQLException ex) {
+                out.println(ex.getMessage());
+                ex.printStackTrace();
+	} finally {
+	 // Close Statement
+ 	if (rs !=null) try { rs.close(); } catch(SQLException ex) {}
+ 	if (stmt !=null) try { stmt.close(); } catch(SQLException ex) {}
+ 	// Close Connection
+	 if (conn !=null) try { conn.close(); } catch(SQLException ex) {}
+ 	}
+     %>
+
+
     <%@ include file = "/Cloud_Web/default.jsp" %>
     <%@ page import="java.util.Date"%>
     <%@ page import="java.util.ArrayList"%>
