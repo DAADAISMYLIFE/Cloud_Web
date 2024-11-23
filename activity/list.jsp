@@ -1,5 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<?xml version="1.0" encoding="UTF-8"?>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="cloud.ActivityDAO, cloud.Activity, cloud.DBConnection" %>
+<%@ page import="java.util.List" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -7,61 +8,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>활동내역 글쓰기</title>
+    <title>활동내역</title>
     <link rel="stylesheet" href="/Cloud_Web/styles/community_styles.css"> <!-- CSS 파일 링크 -->
 </head>
 
 <body>
-    <%@ include file = "/Cloud_Web/default.jsp" %>
-    <%@ page import="java.util.Date"%>
-    <%@ page import="java.util.ArrayList"%>
-    <%!
-    public class Activity {
-    	int activityNo;
-    	String activityTitle;
-   	String activityContent;
-    	String user;
-    	String createdAt;
+    <%@ include file="/Cloud_Web/default.jsp" %>
 
-    	public Activity(int no, String title, String content, String user, String createdAt) {
-        	this.activityNo = no;
-        	this.activityTitle = title;
-        	this.activityContent = content;
-        	this.user = user;
-        	this.createdAt = createdAt;
-    	}
-	
-    	public int getActivityNo() {
-       		return this.activityNo;
-    	}	
-
-    	public String getActivityTitle() {
-    	    	return this.activityTitle;
-    	}	
-
-    	public String getActivityContent() {
-        	return this.activityContent;
-    	}
-
-    	public String getUser() {
-        	return this.user;
-    	}	
-
-    	public String getCreatedAt() {
-        	return this.createdAt;
-    	}
-	}
-
-    %>
-    <%
-	// 임시 데이터 5개 정도 추가
-	ArrayList<Activity> activities = new ArrayList<>();
-   	activities.add(new Activity(1,"대회 참여 1등 수상!!", "공지 내용입니다.", "운영자", "2024-11-18"));
-        activities.add(new Activity(2,"11월 2주차 발표", "나나무의 근황입니다.나무의 근황입니다.나무의 근황입나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.나무의 근황입니다.무의 근황입니다.", "운영자", "2024-11-18"));
-        activities.add(new Activity(3,"11월 2주차 발표 수상 내역", "벌레에 관한 이야기.", "운영자", "2024-11-18"));
-        activities.add(new Activity(4,"[24년도 3분기 순위 발표]", "컴퓨터 소프트웨어 학과 근황.", "운영자", "2024-11-18"));
-        activities.add(new Activity(5,"16주차 스터디 내용", "잘자라는 메시지.", "운영자", "2024-11-18"));
-    %>
     <main>
         <article>
             <div class="activity">
@@ -78,33 +31,44 @@
                             <th scope="col">사진</th>
                         </tr>
                     </thead>
-                <tbody>
-    		<% for (Activity activity : activities) { %>
-    		<tr class="ub-content">
-        		<td class="activity_title" style="height: 20px;"><%= activity.getActivityTitle() %></td>
-        		<td class="activity_image" rowspan="2">
-            		<% if (activity.getActivityNo() == 1) { %>
-	    		<img src="/Cloud_Web/images/invite.jpg">
-            		<% } else { %>
-	    		<img src="/Cloud_Web/images/google.png">
-            		<% } %>
-        		</td>
-    		</tr>
-    		<tr class="ub-content">
-        		<td class="activity_content">
-			<%= activity.getActivityContent().length() > 100
-                		? activity.getActivityContent().substring(0, 110) + "..."
-				: activity.getActivityContent() %>
-			</td>
-    		</tr>
-    		<% } %>
-	</tbody>
+                    <tbody>
+                        <%
+                            // 데이터베이스에서 활동 내역 가져오기
+                            ActivityDAO activityDAO = new ActivityDAO(DBConnection.getConnection());
+                            List<Activity> activities = activityDAO.getAllActivitys();
 
-
-
-
-		</table>
+                            // 데이터가 있는 경우 테이블에 출력
+                            if (activities != null && !activities.isEmpty()) {
+                                for (Activity activity : activities) {
+                        %>
+                        <tr class="ub-content" onclick="window.location='detail.jsp?id=<%= activity.getId() %>'">
+                            <td class="activity_text">
+                                <div class="activity_title"><%= activity.getTitle() %></div>
+                                <div class="activity_content">
+                                    <%= activity.getContent().length() > 100 
+                                        ? activity.getContent().substring(0, 100) + "..." 
+                                        : activity.getContent() %>
+                                </div>
+                            </td>
+                            <td class="activity_image">
+                                <% if (activity.getImagePath() != null && !activity.getImagePath().isEmpty()) { %>
+                                    <img src="<%= activity.getImagePath() %>" alt="Activity Image">
+                                <% } else { %>
+                                    <div class="placeholder-image"></div>
+                                <% } %>
+                            </td>
+                        </tr>
+                        <%      }
+                            } else { %>
+                        <tr>
+                            <td colspan="2" style="text-align: center;">활동 내역이 없습니다.</td>
+                        </tr>
+                        <% } %>
+                        </div>
+                    </tbody>
+                </table>
             </div>
+
             <div class="bottom_elements">
                 <div class="bottom_paging_box">
                     <em>1</em>
@@ -115,8 +79,6 @@
                     <a href="page=85691">다음</a>
                     <a href="page=85691">끝</a>
                 </div>
-
-
             </div>
         </article>
     </main>

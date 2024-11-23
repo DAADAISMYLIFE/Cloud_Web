@@ -1,10 +1,10 @@
 <%@ page import="java.util.List" %>
-<%@ page import="cloud.PostDAO, cloud.DBConnection, cloud.Post" %>
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="cloud.NotiDAO, cloud.DBConnection, cloud.Noti" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <% // DB 연결 및 DAO 생성 
-    PostDAO postDAO=new PostDAO(DBConnection.getConnection()); 
-    List<Post> posts = postDAO.getAllPosts();
+    NotiDAO notiDAO = new NotiDAO(DBConnection.getConnection()); 
+    List<Noti> notis = notiDAO.getAllNotis();
 %>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지 쓰기</title>
+    <title>공지사항</title>
     <link rel="stylesheet" href="/Cloud_Web/styles/community_styles.css"> <!-- CSS 파일 링크 -->
 </head>
 
@@ -40,22 +40,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <% for (Post post : posts) { %>
+                            <% if (notis.size() == 0) {%>
+                                <tr>
+                                   <td colspan="4">아직 등록된 공지사항이 없습니다.</td>
+                                </tr>
+                            <% } else { %>
+                            <% for (Noti noti : notis) { %>
                                 <tr>
                                     <td>
-                                        <%= post.getId() %>
+                                        <%= noti.getId() %>
                                     </td>
                                     <td>
-                                        <%= post.getTitle() %>
+                                        <a href="detail.jsp?id=<%= noti.getId() %>">
+                                        <%= noti.getTitle() %>
                                     </td>
                                     <td>
-                                        <%= post.getUser() %>
+                                        <%= noti.getUser() %>
                                     </td>
                                     <td>
-                                        <%= post.getCreatedAt() %>
+                                        <%= noti.getCreatedAt() %>
                                     </td>
                                 </tr>
-                                <% } %>
+                                <% } } %>
                         </tbody>
                     </table>
                 </div>
