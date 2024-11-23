@@ -7,7 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>웹개발 홈페이지</title>
-        <link rel="stylesheet" href="/Cloud_Web/styles/nav3_styles.css">
+        <link rel="stylesheet" href="/Cloud_Web/styles/nav4_styles.css">
     </head>
 
     <body>
