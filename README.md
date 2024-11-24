@@ -23,6 +23,7 @@ ex) /Cloud_Web/images/google.png <br>
 
 <h3> 개발 환경
 tomcat 내부 구조의 webapps으로 이동해서 다음의 절차를 따릅니다.
+
 ```bash
 git clone <주소> .
 ```
@@ -31,7 +32,6 @@ git clone <주소> .
 디렉토리 구조는 다음과 같습니다. 
 
 ```
-
 .
 ├── README.md
 └── ROOT
