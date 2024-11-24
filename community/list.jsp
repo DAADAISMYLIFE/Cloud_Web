@@ -1,10 +1,10 @@
 <%@ page import="java.util.List" %>
 <%@ page import="cloud.PostDAO, cloud.DBConnection, cloud.Post" %>
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <% // DB 연결 및 DAO 생성 
-    PostDAO postDAO=new PostDAO(DBConnection.getConnection()); List<Post> posts =
-    postDAO.getAllPosts();
+    PostDAO postDAO = new PostDAO(DBConnection.getConnection()); 
+    List<Post> posts = postDAO.getAllPosts();
 %>
 
 <!DOCTYPE html>
@@ -40,6 +40,11 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <% if (posts.size() == 0) {%>
+                                <tr>
+                                   <td colspan="4">아직 등록된 공지사항이 없습니다.</td>
+                                </tr>
+                            <% } else { %>
                             <% for (Post post : posts) { %>
                                 <tr>
                                     <td>
@@ -57,7 +62,7 @@
                                         <%= post.getCreatedAt() %>
                                     </td>
                                 </tr>
-                                <% } %>
+                                <% } } %>
                         </tbody>
                     </table>
                 </div>
