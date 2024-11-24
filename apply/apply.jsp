@@ -65,7 +65,7 @@
 
                             <tr>
                                 <td colspan="2"><textarea id="introduction" name="introduction"
-                                        placeholder="Type your message here..." cols="62" rows="5"></textarea></td>
+                                        placeholder="간단한 본인 소개 부탁드립니다" cols="65" rows="5"></textarea></td>
                             </tr>
 
                             <tr>
@@ -74,7 +74,7 @@
 
                             <tr>
                                 <td colspan="2"><textarea id="interest" name="interest"
-                                        placeholder="Type your message here..." cols="62" rows="5"></textarea></td>
+                                        placeholder="관심있는 분야, 언어를 적어주세요" cols="65" rows="5"></textarea></td>
                             </tr>
 
                         </table>
@@ -83,7 +83,6 @@
                 </article>
                 <input type="submit" value="제출" class="submitBtn">
             </section>
-
 
     </body>
 
