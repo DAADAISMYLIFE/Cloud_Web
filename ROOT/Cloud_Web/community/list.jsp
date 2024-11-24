@@ -4,7 +4,13 @@
 
 <% // DB 연결 및 DAO 생성 
     PostDAO postDAO = new PostDAO(DBConnection.getConnection()); 
-    List<Post> posts = postDAO.getAllPosts();
+      // 페이지 정보 가져오기
+    int pageSize = 10; // 페이지당 게시글 수
+    int currentPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1; // 현재 페이지
+    List<Post> posts = postDAO.getPosts(currentPage, pageSize);
+    int totalPosts = postDAO.getTotalPosts(); // 총 게시글 수
+    int totalPages = (int) Math.ceil((double) totalPosts / pageSize); // 총 페이지 수
+
 %>
 
 <!DOCTYPE html>
@@ -71,13 +77,35 @@
                         <a href="write.jsp"><button>글쓰기</button></a>
                     </div>
                     <div class="bottom_paging_box">
-                        <em>1</em>
-                        <a href="page=2">2</a>
-                        <a href="page=3">3</a>
-                        <a href="page=4">4</a>
-                        <a href="page=5">5</a>
-                        <a href="page=85691">다음</a>
-                        <a href="page=85691">끝</a>
+                        <span>
+                            <% if (currentPage > 1) { %>
+                                <a href="?page=1">처음</a>
+                            <% } %>
+                        </span>
+                        <span>
+                            <% if (currentPage > 1) { %>
+                                <a href="?page=<%= currentPage - 1 %>">이전</a>
+                            <% } %>
+                        </span>
+                        <% for (int i = 1; i <= totalPages; i++) { %>
+                            <% if (i == currentPage) { %>
+                            <em>
+                                <a><%= i %></a>
+                            </em>
+                            <% } else { %>
+                                <a href="?page=<%= i %>"><%= i %></a>
+                            <% } %>
+                        <% } %>
+                        <span>
+                            <% if (currentPage < totalPages) { %>
+                                <a href="?page=<%= currentPage + 1 %>">다음</a>
+                            <% } %>
+                        </span>
+                        <span>
+                            <% if (currentPage < totalPages) { %>
+                                <a href="?page=<%= totalPages %>">끝</a>
+                            <% } %>
+                        </span>
                     </div>
                 </div>
             </article>

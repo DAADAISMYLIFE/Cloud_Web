@@ -217,6 +217,7 @@ form .button-container {
 
 .ub-content:hover{
     background-color: rgba(0, 0, 0, 0.1); 
+    cursor: pointer;
 }
 
 /* 비어있는 활동 내역 스타일 */

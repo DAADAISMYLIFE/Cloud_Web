@@ -35,7 +35,13 @@
                         <%
                             // 데이터베이스에서 활동 내역 가져오기
                             ActivityDAO activityDAO = new ActivityDAO(DBConnection.getConnection());
-                            List<Activity> activities = activityDAO.getAllActivitys();
+                            
+                            // 페이지 정보 가져오기
+                            int pageSize = 10; // 페이지당 게시글 수
+                            int currentPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1; // 현재 페이지
+                            List<Activity> activities = activityDAO.getActivity(currentPage, pageSize);
+                            int totalActivity = activityDAO.getTotalActivity(); // 총 게시글 수
+                            int totalPages = (int) Math.ceil((double) totalActivity / pageSize); // 총 페이지 수
 
                             // 데이터가 있는 경우 테이블에 출력
                             if (activities != null && !activities.isEmpty()) {
@@ -52,7 +58,7 @@
                             </td>
                             <td class="activity_image">
                                 <% if (activity.getImagePath() != null && !activity.getImagePath().isEmpty()) { %>
-                                    <img src="<%= activity.getImagePath() %>" alt="Activity Image">
+                                    <img src="<%= activity.getImagePath() %>" alt="Broken Image">
                                 <% } else { %>
                                     <div class="placeholder-image"></div>
                                 <% } %>
@@ -71,14 +77,36 @@
 
             <div class="bottom_elements">
                 <div class="bottom_paging_box">
-                    <em>1</em>
-                    <a href="page=2">2</a>
-                    <a href="page=3">3</a>
-                    <a href="page=4">4</a>
-                    <a href="page=5">5</a>
-                    <a href="page=85691">다음</a>
-                    <a href="page=85691">끝</a>
-                </div>
+                        <span>
+                            <% if (currentPage > 1) { %>
+                                <a href="?page=1">처음</a>
+                            <% } %>
+                        </span>
+                        <span>
+                            <% if (currentPage > 1) { %>
+                                <a href="?page=<%= currentPage - 1 %>">이전</a>
+                            <% } %>
+                        </span>
+                        <% for (int i = 1; i <= totalPages; i++) { %>
+                            <% if (i == currentPage) { %>
+                            <em>
+                                <a><%= i %></a>
+                            </em>
+                            <% } else { %>
+                                <a href="?page=<%= i %>"><%= i %></a>
+                            <% } %>
+                        <% } %>
+                        <span>
+                            <% if (currentPage < totalPages) { %>
+                                <a href="?page=<%= currentPage + 1 %>">다음</a>
+                            <% } %>
+                        </span>
+                        <span>
+                            <% if (currentPage < totalPages) { %>
+                                <a href="?page=<%= totalPages %>">끝</a>
+                            <% } %>
+                        </span>
+                    </div>
             </div>
         </article>
     </main>
