@@ -61,6 +61,47 @@ public class PostDAO {
         return post;
     }
 
+    // 페이지네이션용
+    public List<Post> getPosts(int page, int pageSize) throws SQLException {
+        String sql = "SELECT * FROM post LIMIT ?, ?";
+        List<Post> posts = new ArrayList<>();
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, (page - 1) * pageSize); // OFFSET
+            pstmt.setInt(2, pageSize); // LIMIT
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    Post post = new Post();
+                    post.setId(rs.getInt("id"));
+                    post.setTitle(rs.getString("title"));
+                    post.setContent(rs.getString("content"));
+                    post.setUser(rs.getString("user"));
+                    post.setCreatedAt(rs.getString("createdAt")); // Timestamp로 변경
+                    posts.add(post);
+                }
+            }
+        }
+        return posts;
+    }
+
+    // 전체 게시글 수 가져오는 메서드 추가
+    public int getTotalPosts() {
+        int totalPosts = 0;
+        try {
+            String sql = "SELECT COUNT(*) FROM post";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            
+            if (rs.next()) {
+                totalPosts = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return totalPosts;
+    }
+
     // UPDATE
     public void updatePost(Post post) throws SQLException {
         String sql = "UPDATE post SET title = ?, content = ?, user = ? WHERE id = ?";
