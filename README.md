@@ -21,14 +21,14 @@ ex) /Cloud_Web/images/google.png <br>
 - include 를 적용하려는 파일을 .jsp로 설정. html에서는 작동 X <br>
 - body 태그 내 **<%@ include file = "/Cloud_Web/default.jsp" %>** 삽입
 
-<h3> 개발 환경
+### 개발 환경
 tomcat 내부 구조의 webapps으로 이동해서 다음의 절차를 따릅니다.
 
 ```bash
 git clone <주소> .
 ```
 
-<h3> 디렉토리 구조
+### 디렉토리 구조
 디렉토리 구조는 다음과 같습니다. 
 
 ```
