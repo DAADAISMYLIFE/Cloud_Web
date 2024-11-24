@@ -22,31 +22,31 @@
                     </tr>
                     <tr>
                         <td><label>아이디</label></td>
-                        <td><input type="text" id="id" name="id" placeholder="아이디를 입력하세요"></td>
+                        <td><input type="text" id="id" name="id" placeholder="ID"></td>
                     </tr>
                     <tr>
                         <td><label>비밀번호</label></td>
-                        <td><input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요"></td>
+                        <td><input type="password" id="password" name="password" placeholder="PW"></td>
                     </tr>
                     <tr>
                         <td><label>비밀번호 확인</label></td>
-                        <td><input type="password" id="passwordCheck" name="passwordCheck" placeholder="비밀번호를 다시 입력하세요"></td>
+                        <td><input type="password" id="passwordCheck" name="passwordCheck" placeholder="PW CHECK"></td>
                     </tr>
                     <tr>
                         <td><label>이름</label></td>
-                        <td><input type="text" id="name" name="name" placeholder="이름을 입력하세요"></td>
+                        <td><input type="text" id="name" name="name" placeholder="NAME"></td>
                     </tr>
                     <tr>
                         <td><label>이메일</label></td>
-                        <td><input type="email" id="email" name="email" placeholder="이메일을 입력하세요"></td>
+                        <td><input type="email" id="email" name="email" placeholder="EMAIL"></td>
                     </tr>
                     <tr>
                         <td><label>전화번호</label></td>
-                        <td><input type="tel" id="phone" name="phone" placeholder="전화번호를 입력하세요"></td>
+                        <td><input type="tel" id="phone" name="phone" placeholder="PHONE"></td>
                     </tr>
                     <tr>
                         <td><label>닉네임</label></td>
-                        <td><input type="text" id="nickname" name="nickname" placeholder="닉네임을 입력하세요"></td>
+                        <td><input type="text" id="nickname" name="nickname" placeholder="NICKNAME"></td>
                     </tr>
                     <tr>
                         <td colspan="2"><input type="submit" value="회원가입" class="submitBtn"></td>

@@ -67,9 +67,29 @@ body {
 
 .inviteTable td{
   width: 300px;
-  padding-left: 30px;
+  padding-left: 40px;
 }
 
+.inviteTable input{
+  font-size: 13px;
+  border: 2px solid lightgrey;
+  border-radius: 8px;
+  outline: none;
+  width: 70%;
+  height: 30px;
+  text-indent: 15px;
+}
+
+.inviteTable textarea{
+  font-size: 13px;
+  border: 2px solid lightgrey;
+  border-radius: 8px;
+  outline: none;
+  width: 85%;
+  height: 90px;
+  text-indent: 15px;
+  resize: none;
+}
 
 .submitBtn {
   position: absolute; /* 절대 위치 지정 */
