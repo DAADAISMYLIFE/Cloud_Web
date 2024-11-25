@@ -7,28 +7,37 @@
 
         // 입력 값 가져오기
         String userId = request.getParameter("id");
-        String password = request.getParameter("password");
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String birth = request.getParameter("birth");
-        String phone = request.getParameter("phone");
-        String nickname = request.getParameter("nickname");
 
-        // 새로운 유저 객체 생성
-        User user = new User();
-        user.setUserId(userId);
-        user.setPassword(password);
-        user.setName(name);
-        user.setEmail(email);
-        user.setBirth(birth);
-        user.setNickname(nickname);
-        user.setPhone(phone);
-
-        // DAO로 DB에 추가
+        // 중복 검사
         UserDAO userDAO = new UserDAO(DBConnection.getConnection());
-        userDAO.createUser(user);
+        boolean isDuplicate = userDAO.isUserIdExists(userId);
 
-        // 리다이렉트
+         if (isDuplicate) {
+            out.println("<script>alert('아이디가 이미 존재합니다. 다른 아이디를 사용해주세요.'); history.back();</script>");
+        } else {
+            String password = request.getParameter("password");
+            String name = request.getParameter("name");
+            String email = request.getParameter("email");
+            String birth = request.getParameter("birth");
+            String phone = request.getParameter("phone");
+            String nickname = request.getParameter("nickname");
+
+            // 새로운 유저 객체 생성
+            User user = new User();
+            user.setUserId(userId);
+            user.setPassword(password);
+            user.setName(name);
+            user.setEmail(email);
+            user.setBirth(birth);
+            user.setNickname(nickname);
+            user.setPhone(phone);
+
+            // DAO로 DB에 추가
+            userDAO.createUser(user);
+
+            // 리다이렉트
+            out.println("<script>alert('회원가입이 완료되었습니다.'); location.href='/Cloud_Web/login/loginPage.jsp';</script>");
+        }
     }
 %>
 
