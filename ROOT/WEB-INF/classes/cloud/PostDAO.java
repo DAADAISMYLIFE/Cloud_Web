@@ -63,7 +63,7 @@ public class PostDAO {
 
     // 페이지네이션용
     public List<Post> getPosts(int page, int pageSize) throws SQLException {
-        String sql = "SELECT * FROM post LIMIT ?, ?";
+        String sql = "SELECT * FROM post ORDER BY id DESC LIMIT ?, ?";
         List<Post> posts = new ArrayList<>();
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {

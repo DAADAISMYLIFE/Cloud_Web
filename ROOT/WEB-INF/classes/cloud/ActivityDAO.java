@@ -66,7 +66,7 @@ public class ActivityDAO {
 
     // 페이지네이션용
     public List<Activity> getActivity(int page, int pageSize) throws SQLException {
-        String sql = "SELECT * FROM activity LIMIT ?, ?";
+        String sql = "SELECT * FROM activity ORDER BY id DESC LIMIT ?, ? ";
         List<Activity> activities = new ArrayList<>();
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {

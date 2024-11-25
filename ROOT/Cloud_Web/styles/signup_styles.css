@@ -1,43 +1,115 @@
+@font-face {
+    font-family: 'NanumSquareB';
+    src: url('../fonts/NanumSquareB.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NanumSquareL';
+    src: url('../fonts/NanumSquareL.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    font-family: 'NanumSquareL', Arial, sans-serif;
+}
+
 .signupSection {
-    position: relative;
-    /* 자식 요소의 위치를 상대적으로 설정 */
-    width: 500px;
-    height: 700px;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
+    width: 800px;
+    margin: 50px auto; /* 화면 중앙 정렬 */
+    padding: 30px 40px;
     border: 1px solid #ddd;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9; /* 밝은 배경색 */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .signupForm {
-    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* 수직 방향 정렬 */
+    align-items: center; /* 내부 요소 수평 가운데 정렬 */
 }
 
 .signupForm table {
+    width: auto; /* 테이블 크기 조절 */
+    margin: 0 auto; /* 수평 중앙 정렬 */
     border-collapse: separate;
-    /* 셀 간의 경계를 분리 */
-    border-spacing: 15px 20px
-        /* 셀 간의 간격을 10px로 설정 */
+    border-spacing: 0 20px; /* 셀 간의 수직 간격을 늘림 */
+}
+
+.signupForm td {
+    padding: 2px 25px; /* 셀 내부 여백을 추가 */
 }
 
 .signupForm label {
     font-size: 20px;
+    font-weight: bold;
+    color: #555; /* 조금 더 부드러운 색상 */
 }
 
 .signupForm input {
-    font-size: 18px;
-    border: 2px solid lightgrey;
-    border-radius: 8px;
+    font-size: 20px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
     outline: none;
-    width: 100%;
-    height: 50px;
-    text-indent: 15px;
+    padding: 12px;
+    transition: border-color 0.3s, box-shadow 0.3s; /* 포커스 효과를 부드럽게 */
+    margin: 5px 0; /* 입력창 간 간격 추가 */
+    text-align: left; /* 입력 텍스트 가운데 정렬 */
+    font-family: Arial, sans-serif;
+
+}
+
+
+.signupForm input:focus {
+    border-color: #357ae8;
+    box-shadow: 0 0 6px rgba(53, 122, 232, 0.3);
+}
+
+caption{
+    font-size: 24px;
+    font-family: 'NanumSquareB', Arial, sans-serif;
+
+}
+.signupForm .error-msg {
+    font-size: 12px;
+    color: red;
+    display: none; /* 기본적으로 보이지 않음 */
+    margin-top: 5px; /* 입력창과의 간격 */
+    line-height: 20px; /* 메시지 줄 높이 */
+    overflow: hidden; /* 텍스트 넘침 방지 */
+    transition: visibility 0.3s, opacity 0.3s; /* 부드러운 표시 효과 */
+    opacity: 0; /* 초기에는 투명 */
+}
+
+.signupForm .error-msg.visible {
+    display: block; /* 표시 상태 */
+    opacity: 1; /* 완전히 보이게 */
+}
+
+.submitBtn {
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4285F4;
+    border: none;
+    border-radius: 6px;
+    padding: 15px;
+    cursor: pointer;
+    width: 200px; /* 버튼 너비 조정 */
+    transition: background-color 0.3s;
+    margin-top: 20px; /* 버튼 위아래 간격 추가 */
+    text-align: center; /* 버튼 내부 텍스트 정렬 */
 }
 
 .submitBtn:hover {
-    background-color: #357ae8;
+    background-color: #2b5aa4;
 }

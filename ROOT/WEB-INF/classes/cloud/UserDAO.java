@@ -74,6 +74,43 @@ public class UserDAO {
         return user;
     }
 
+    // READ (특정 사용자 id 조회)
+    public User getUserByUserId(int userId) throws SQLException {
+        String sql = "SELECT * FROM user WHERE userId = ?";
+        User user = null;
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, userId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    user = new User();
+                    user.setId(rs.getInt("id"));
+                    user.setName(rs.getString("name"));
+                    user.setUserId(rs.getString("userId"));
+                    user.setPassword(rs.getString("password"));
+                    user.setEmail(rs.getString("email"));
+                    user.setBirth(rs.getString("birth"));
+                    user.setNickname(rs.getString("nickname"));
+                    user.setPhone(rs.getString("phone"));
+                }
+            }
+        }
+        return user;
+    }
+
+    // 아이디 중복 여부
+    public boolean isUserIdExists(String userId) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM user WHERE userId = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, userId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0; // 중복 아이디가 있으면 true 반환
+                }
+            }
+        }
+        return false; // 중복 아이디 없음
+    }
+
     // UPDATE
     public void updateUser(User user) throws SQLException {
         String sql = "UPDATE user SET name = ?, userId = ?, password = ?, email = ?, birth = ?, nickname = ?, phone = ?, isMember = ? WHERE id = ?";
