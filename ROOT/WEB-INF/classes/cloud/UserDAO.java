@@ -75,11 +75,11 @@ public class UserDAO {
     }
 
     // READ (특정 사용자 id 조회)
-    public User getUserByUserId(int userId) throws SQLException {
+    public User getUserByUserId(String userId) throws SQLException {
         String sql = "SELECT * FROM user WHERE userId = ?";
         User user = null;
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, userId);
+            pstmt.setString(1, userId);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
                     user = new User();
