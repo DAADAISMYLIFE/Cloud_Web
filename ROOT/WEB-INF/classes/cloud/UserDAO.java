@@ -1,0 +1,135 @@
+package cloud;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class UserDAO {
+    private Connection conn;
+
+    public UserDAO(Connection conn) {
+        this.conn = conn;
+    }
+
+    // CREATE
+    public void createUser(User user) throws SQLException {
+        String sql = "INSERT INTO user (name, userId, password, email, birth, nickname, phone) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, user.getName());
+            pstmt.setString(2, user.getUserId());
+            pstmt.setString(3, user.getPassword());
+            pstmt.setString(4, user.getEmail());
+            pstmt.setString(5, user.getBirth());
+            pstmt.setString(6, user.getNickname());
+            pstmt.setString(7, user.getPhone());
+            pstmt.executeUpdate();
+        }
+    }
+
+    // READ (모든 사용자 조회)
+    public List<User> getAllUsers() throws SQLException {
+        String sql = "SELECT * FROM user";
+        List<User> users = new ArrayList<>();
+        try (PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setUserId(rs.getString("userId"));
+                user.setPassword(rs.getString("password"));
+                user.setEmail(rs.getString("email"));
+                user.setBirth(rs.getString("birth"));
+                user.setNickname(rs.getString("nickname"));
+                user.setPhone(rs.getString("phone"));
+                users.add(user);
+            }
+        }
+        return users;
+    }
+
+    // READ (특정 사용자 조회)
+    public User getUserById(int id) throws SQLException {
+        String sql = "SELECT * FROM user WHERE id = ?";
+        User user = null;
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    user = new User();
+                    user.setId(rs.getInt("id"));
+                    user.setName(rs.getString("name"));
+                    user.setUserId(rs.getString("userId"));
+                    user.setPassword(rs.getString("password"));
+                    user.setEmail(rs.getString("email"));
+                    user.setBirth(rs.getString("birth"));
+                    user.setNickname(rs.getString("nickname"));
+                    user.setPhone(rs.getString("phone"));
+                }
+            }
+        }
+        return user;
+    }
+
+    // UPDATE
+    public void updateUser(User user) throws SQLException {
+        String sql = "UPDATE user SET name = ?, userId = ?, password = ?, email = ?, birth = ?, nickname = ?, phone = ? WHERE id = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, user.getName());
+            pstmt.setString(2, user.getUserId());
+            pstmt.setString(3, user.getPassword());
+            pstmt.setString(4, user.getEmail());
+            pstmt.setString(5, user.getBirth());
+            pstmt.setString(6, user.getNickname());
+            pstmt.setString(7, user.getPhone());
+            pstmt.setInt(8, user.getId());
+            pstmt.executeUpdate();
+        }
+    }
+
+    // DELETE
+    public void deleteUser(int id) throws SQLException {
+        String sql = "DELETE FROM user WHERE id = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        }
+    }
+
+    // 추가: 페이지네이션 지원
+    public List<User> getUsers(int page, int pageSize) throws SQLException {
+        String sql = "SELECT * FROM user LIMIT ?, ?";
+        List<User> users = new ArrayList<>();
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, (page - 1) * pageSize); // OFFSET
+            pstmt.setInt(2, pageSize); // LIMIT
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    User user = new User();
+                    user.setId(rs.getInt("id"));
+                    user.setName(rs.getString("name"));
+                    user.setUserId(rs.getString("userId"));
+                    user.setPassword(rs.getString("password"));
+                    user.setEmail(rs.getString("email"));
+                    user.setBirth(rs.getString("birth"));
+                    user.setNickname(rs.getString("nickname"));
+                    user.setPhone(rs.getString("phone"));
+                    users.add(user);
+                }
+            }
+        }
+        return users;
+    }
+
+    // 추가: 전체 사용자 수
+    public int getTotalUsers() throws SQLException {
+        String sql = "SELECT COUNT(*) FROM user";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        }
+        return 0;
+    }
+}
