@@ -95,7 +95,7 @@ public class UserDAO {
     }
 
     // 아이디 중복 여부
-    public boolean isUserExists(String userId) throws SQLException {
+    public boolean isUserIdExists(String userId) throws SQLException {
         String sql = "SELECT COUNT(*) FROM user WHERE userId = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, userId);

@@ -66,7 +66,7 @@ public class NotiDAO {
 
         // 페이지네이션용
     public List<Noti> getNotis(int page, int pageSize) throws SQLException {
-        String sql = "SELECT * FROM noti LIMIT ?, ?";
+        String sql = "SELECT * FROM noti ORDER BY id DESC LIMIT ?, ?";
         List<Noti> notis = new ArrayList<>();
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
