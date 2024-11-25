@@ -1,4 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ page import="cloud.Apply, cloud.DBConnection, cloud.ApplyDAO" %>
+
+<%
+    if (request.getMethod().equalsIgnoreCase("POST")) {
+
+        request.setCharacterEncoding("UTF-8");
+
+        // 입력 값 가져오기
+        String name = request.getParameter("name");
+        String studentId = request.getParameter("studentId");
+        String phone = request.getParameter("phone");
+        String email = request.getParameter("email");
+        String department = request.getParameter("department");
+        String introduction = request.getParameter("introduction");
+        String interest = request.getParameter("interest");
+
+        // 새로운 Apply 객체 생성
+        Apply apply = new Apply();
+        apply.setName(name);
+        apply.setStudentNumber(studentId);
+        apply.setPhone(phone);
+        apply.setEmail(email);
+        apply.setDepartment(department);
+        apply.setIntroduction(introduction);
+        apply.setInterest(interest);
+    
+
+        // DAO로 DB에 추가
+        ApplyDAO applyDao = new ApplyDAO(DBConnection.getConnection());
+        applyDao.createApply(apply);
+
+    }
+%>
+
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE html>
     <html lang="en">
@@ -25,7 +59,7 @@
 
 
                 <article class="inviteMain">
-                    <form class="applicationForm">
+                    <form class="applicationForm" method="post">
 
                         <table class="inviteTable">
                             <tr>
@@ -77,10 +111,11 @@
                             </tr>
 
                         </table>
+                        <input type="submit" value="제출" class="submitBtn">
                     </form>
 
                 </article>
-                <input type="submit" value="제출" class="submitBtn">
+                
             </section>
 
 
