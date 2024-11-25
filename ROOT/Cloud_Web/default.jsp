@@ -25,7 +25,7 @@
 
     <nav id="nav1">
         <ul class="nav-menu">
-            <li><a href="#">동아리 소개</a></li>
+            <li><a href="/Cloud_Web/introduce.jsp">동아리 소개</a></li>
             <li><a href="/Cloud_Web/apply/apply.jsp">가입신청</a></li>
             <li><a href="/Cloud_Web/activity/list.jsp">활동내역</a></li>
             <li><a href="/Cloud_Web/notification/list.jsp">공지사항</a></li>

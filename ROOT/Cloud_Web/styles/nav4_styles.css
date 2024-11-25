@@ -7,15 +7,11 @@
 @font-face {
     font-family: 'NanumSquareB';
     src: url('../fonts/NanumSquareB.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
 }
 
 @font-face {
     font-family: 'NanumSquareL';
     src: url('../fonts/NanumSquareL.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
 }
 
 body {
@@ -28,24 +24,21 @@ header {
     background-color: #fff;
     border-bottom: 1px solid #ddd;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: relative; /* 'static' 대신 'relative'로 변경 */
-    z-index: 10;
     padding: 10px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 80px;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .header-container {
     display: flex;
-    justify-content: space-between; /* 두 요소를 양 끝으로 배치 */
+    justify-content: space-between;
     align-items: center;
     max-width: 1280px;
     margin: 0 auto;
-    width: 100%; /* 전체 너비 사용 */
+    width: 100%;
 }
 
 #logo {
@@ -53,17 +46,15 @@ header {
     align-items: center;
 }
 
-
 #logo img {
     width: 150px;
-    /* 로고 크기 */
     height: auto;
 }
 
 #auth {
     display: flex;
     align-items: center;
-    gap: 15px; /* 링크 간 간격 */
+    gap: 15px;
 }
 
 #auth a {
