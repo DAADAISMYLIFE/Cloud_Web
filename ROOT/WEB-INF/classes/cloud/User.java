@@ -9,6 +9,7 @@ public class User {
     private String birth;
     private String nickname;
     private String phone;
+    private boolean isMember = false;
 
     // Getter와 Setter
     public int getId() { return id; }
@@ -34,5 +35,8 @@ public class User {
 
     public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
+
+    public boolean isMember() { return isMember; }
+    public void setMember(boolean isMember) { this.isMember = isMember; }
     
 }
