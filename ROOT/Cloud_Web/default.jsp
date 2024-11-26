@@ -14,7 +14,7 @@
     <header>
         <div class="header-container">
             <div id="logo">
-                <a href="/Cloud_Web/index.jsp"><img src="/Cloud_Web/images/google.png" alt="로고"></a>
+                <a href="/Cloud_Web/index.jsp"><img src="/Cloud_Web/images/logo.png" alt="로고"></a>
             </div>
             <div id="auth">
                 <a href="/Cloud_Web/login/loginPage.jsp" id="login">로그인</a>
