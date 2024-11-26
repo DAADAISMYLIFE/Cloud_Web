@@ -9,6 +9,8 @@
         // 입력 값 가져오기
         String title = request.getParameter("title");
         String content = request.getParameter("content");
+        
+        // TODO : 로그인된 유저의 NICKNAME 들고 오기
         String user = "dong-eui";//request.getParameter("user");
 
         // 새로운 게시글 객체 생성

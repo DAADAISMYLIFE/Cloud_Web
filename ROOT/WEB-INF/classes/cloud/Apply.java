@@ -10,6 +10,8 @@ public class Apply {
     private String interest;
     private int id;
     private String createdAt;
+    private int isApply;
+    private String userId;
     
     /*
      * Getter & Setter
@@ -51,6 +53,14 @@ public class Apply {
         this.createdAt = createdAt;
     }
 
+    public void setIsApply(int isApply){
+        this.isApply = isApply;
+    }
+
+    public void setUserId(String userId){
+        this.userId = userId;
+    }
+
     public String getName() {
         return name;
     }
@@ -85,6 +95,14 @@ public class Apply {
 
     public String getCreatedAt() {
         return createdAt;
+    }
+
+    public int getIsApply() {
+        return isApply;
+    }
+
+    public String getUserId() {
+        return userId;
     }
 
 

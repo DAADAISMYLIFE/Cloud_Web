@@ -13,7 +13,7 @@ public class ApplyDAO {
 
     // CREATE
     public void createApply(Apply apply) throws SQLException {
-        String sql = "INSERT INTO apply (name, studentNumber, phone, email, department, introduction, interest, createdAt) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
+        String sql = "INSERT INTO apply (name, studentNumber, phone, email, department, introduction, interest, userId, createdAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, apply.getName());
             pstmt.setString(2, apply.getStudentNumber());
@@ -22,6 +22,7 @@ public class ApplyDAO {
             pstmt.setString(5, apply.getDepartment());
             pstmt.setString(6, apply.getIntroduction());
             pstmt.setString(7, apply.getInterest());
+            pstmt.setString(8, apply.getUserId());
             pstmt.executeUpdate();
         }
     }
@@ -43,6 +44,9 @@ public class ApplyDAO {
                 apply.setIntroduction(rs.getString("introduction"));
                 apply.setInterest(rs.getString("interest"));
                 apply.setCreatedAt(rs.getString("createdAt"));
+                // 승인여부, 유저아이디
+                apply.setIsApply(rs.getInt("isApply"));
+                apply.setUserId(rs.getString("userId"));
                 applies.add(apply);
             }
         }
@@ -67,6 +71,9 @@ public class ApplyDAO {
                     apply.setIntroduction(rs.getString("introduction"));
                     apply.setInterest(rs.getString("interest"));
                     apply.setCreatedAt(rs.getString("createdAt"));
+                    // 승인여부, 유저아이디
+                    apply.setIsApply(rs.getInt("isApply"));
+                    apply.setUserId(rs.getString("userId"));
                 }
             }
         }
@@ -94,6 +101,9 @@ public class ApplyDAO {
                     apply.setIntroduction(rs.getString("introduction"));
                     apply.setInterest(rs.getString("interest"));
                     apply.setCreatedAt(rs.getString("createdAt"));
+                    // 승인여부, 유저아이디
+                    apply.setIsApply(rs.getInt("isApply"));
+                    apply.setUserId(rs.getString("userId"));
                     applies.add(apply);
                 }
             }

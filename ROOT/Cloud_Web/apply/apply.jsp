@@ -24,6 +24,9 @@
         apply.setDepartment(department);
         apply.setIntroduction(introduction);
         apply.setInterest(interest);
+
+        //TODO : 로그인된 유저의 id 넣어주기 (userId);
+        apply.setUserId(interest);
     
 
         // DAO로 DB에 추가
