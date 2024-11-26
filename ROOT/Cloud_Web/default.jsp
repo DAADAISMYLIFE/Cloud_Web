@@ -1,3 +1,4 @@
+<%@ page import="javax.servlet.http.HttpSession" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
@@ -17,12 +18,17 @@
                 <a href="/Cloud_Web/index.jsp"><img src="/Cloud_Web/images/google.png" alt="로고"></a>
             </div>
             <div id="auth">
-            <!--TODO : 로그인 시 사라지고 자기 이름만 표시-->
-            <% if (1 == 2 ) { %>
+            <% 
+            if (session != null && session.getAttribute("userId") != null) { 
+                String userName = (String) session.getAttribute("userName");
+            %>
+                안녕하세요,  <%= userName %> 님
+                <a href="/Cloud_Web/login/logout.jsp" id="logout">로그아웃</a>
+            <%
+            } else {
+            %>
                 <a href="/Cloud_Web/login/loginPage.jsp" id="login">로그인</a>
                 <a href="/Cloud_Web/signup/signup.jsp" id="signup">회원가입</a>
-            <% } else { %>
-                <a href="/Cloud_Web/login/loginPage.jsp" id="login">강순우</a>
             <% } %>
                 
             </div>

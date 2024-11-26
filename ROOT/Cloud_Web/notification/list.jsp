@@ -1,3 +1,5 @@
+<%@ page import="javax.servlet.http.HttpSession" %>
+<%@ include file="/Cloud_Web/login/sessionCheck.jsp" %>
 <%@ page import="java.util.List" %>
 <%@ page import="cloud.NotiDAO, cloud.DBConnection, cloud.Noti" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>

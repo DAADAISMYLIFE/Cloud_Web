@@ -1,4 +1,5 @@
 <%@ page import="cloud.UserDAO, cloud.DBConnection, cloud.User" %>
+<%@ page import="javax.servlet.http.HttpSession" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     if (request.getMethod().equalsIgnoreCase("POST"))  {
@@ -12,10 +13,14 @@
             String dbUserId = user.getUserId();
             String dbUserPw = user.getPassword();
                 if (userIdInput.equals(dbUserId) && userPwInput.equals(dbUserPw)) {
-
-                    out.println("<script>alert('로그인 성공.'); location.href='#';</script>");
+                    // 세션 생성
+                    // HttpSession session = request.getSession();
+                    session.setAttribute("userId", user.getUserId()); // 세션에 userId 저장
+                    session.setAttribute("userName", user.getName()); // 세션에 사용자 이름 저장
+                    session.setAttribute("userNickName", user.getNickname()); // 세션에 사용자 닉네임 저장
+                    out.println("<script> alert('로그인 성공.'); location.href='/Cloud_Web/default.jsp'; </script>"); // 로그인 성공 시 default 화면으로 이동
                 } else {
-                    out.println("<script>alert('비밀번호가 일치하지 않습니다.'); history.back();</script>");
+                    out.println("<script> alert('비밀번호가 일치하지 않습니다.'); history.back();</script>");
                 }
             } else {
                 out.println("<script>alert('아이디가 존재하지 않습니다.'); history.back();</script>");

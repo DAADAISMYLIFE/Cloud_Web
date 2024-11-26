@@ -13,7 +13,7 @@ public class UserDAO {
 
     // CREATE
     public void createUser(User user) throws SQLException {
-        String sql = "INSERT INTO user (name, userId, password, email, birth, nickname, phone, isMember) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"; 
+        String sql = "INSERT INTO user (name, userId, password, email, birth, nickname, phone, getMember, isAdmin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, user.getName());
             pstmt.setString(2, user.getUserId());
@@ -22,7 +22,8 @@ public class UserDAO {
             pstmt.setString(5, user.getBirth());
             pstmt.setString(6, user.getNickname());
             pstmt.setString(7, user.getPhone());
-            pstmt.setBoolean(8, user.isMember());
+            pstmt.setBoolean(8, user.getMember());
+            pstmt.setBoolean(9, user.getAdmin());
             pstmt.executeUpdate();
         }
     }
@@ -44,6 +45,7 @@ public class UserDAO {
                 user.setNickname(rs.getString("nickname"));
                 user.setPhone(rs.getString("phone"));
                 user.setMember(rs.getBoolean("isMember"));
+                user.setAdmin(rs.getBoolean("isAdmin"));
                 users.add(user);
             }
         }
@@ -68,6 +70,7 @@ public class UserDAO {
                     user.setNickname(rs.getString("nickname"));
                     user.setPhone(rs.getString("phone"));
                     user.setMember(rs.getBoolean("isMember"));
+                    user.setAdmin(rs.getBoolean("isAdmin"));
                 }
             }
         }
@@ -91,6 +94,8 @@ public class UserDAO {
                     user.setBirth(rs.getString("birth"));
                     user.setNickname(rs.getString("nickname"));
                     user.setPhone(rs.getString("phone"));
+                    user.setMember(rs.getBoolean("isMember"));
+                    user.setAdmin(rs.getBoolean("isAdmin"));
                 }
             }
         }
@@ -113,7 +118,7 @@ public class UserDAO {
 
     // UPDATE
     public void updateUser(User user) throws SQLException {
-        String sql = "UPDATE user SET name = ?, userId = ?, password = ?, email = ?, birth = ?, nickname = ?, phone = ?, isMember = ? WHERE id = ?";
+        String sql = "UPDATE user SET name = ?, userId = ?, password = ?, email = ?, birth = ?, nickname = ?, phone = ?, isMember = ?, isAdmin = ? WHERE id = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, user.getName());
             pstmt.setString(2, user.getUserId());
@@ -121,8 +126,10 @@ public class UserDAO {
             pstmt.setString(4, user.getEmail());
             pstmt.setString(5, user.getBirth());
             pstmt.setString(6, user.getNickname());
-            pstmt.setBoolean(8, user.isMember());
-            pstmt.setInt(9, user.getId());
+            pstmt.setString(7, user.getPhone());
+            pstmt.setBoolean(8, user.getMember());
+            pstmt.setBoolean(9, user.getAdmin());
+            pstmt.setInt(10, user.getId());
             pstmt.executeUpdate();
         }
     }
@@ -155,6 +162,7 @@ public class UserDAO {
                     user.setNickname(rs.getString("nickname"));
                     user.setPhone(rs.getString("phone"));
                     user.setMember(rs.getBoolean("isMember"));
+                    user.setAdmin(rs.getBoolean("isAdmin"));
                     users.add(user);
                 }
             }
