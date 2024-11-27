@@ -13,7 +13,7 @@ public class UserDAO {
 
     // CREATE
     public void createUser(User user) throws SQLException {
-        String sql = "INSERT INTO user (name, userId, password, email, birth, nickname, phone, getMember, isAdmin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
+        String sql = "INSERT INTO user (name, userId, password, email, birth, nickname, phone, isMember, isAdmin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, user.getName());
             pstmt.setString(2, user.getUserId());

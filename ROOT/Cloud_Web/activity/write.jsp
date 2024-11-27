@@ -15,7 +15,7 @@ if (request.getMethod().equalsIgnoreCase("POST")) {
 
     String title = null;
     String content = null;
-    String user = "운영자";
+    String user = (String) session.getAttribute("userNickName");
     String imagePath = null;
 
     try {

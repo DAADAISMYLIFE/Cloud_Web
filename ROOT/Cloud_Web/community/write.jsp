@@ -1,4 +1,3 @@
-<%@ page import="javax.servlet.http.HttpSession" %>
 <%@ include file="/Cloud_Web/login/sessionCheck.jsp" %>
 <%@ page import="cloud.PostDAO, cloud.DBConnection, cloud.Post" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -12,7 +11,6 @@
         // 입력 값 가져오기
         String title = request.getParameter("title");
         String content = request.getParameter("content");
-
         String user = (String) session.getAttribute("userNickName");
 
         // 새로운 게시글 객체 생성
