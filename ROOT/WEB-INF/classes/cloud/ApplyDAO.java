@@ -1,4 +1,3 @@
-package cloud;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -146,6 +145,23 @@ public class ApplyDAO {
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, id);
             pstmt.executeUpdate();
+        }
+    }
+
+    public void updateisMember(int id) throws SQLException{
+        String sql = "select name from apply where id =?";
+        try(PreparedStatement pstmt = conn.prepareStatement(sql)){
+            pstmt.setInt(1,id);
+            try(ResultSet rs = pstmt.executeQuery()){
+                if(rs.next()){
+                    String name = rs.getString("name");
+                    sql = "update user set isMember = 1 where name = ?";
+                    try(PreparedStatement pstmt2 = conn.prepareStatement(sql)){
+                        pstmt2.setString(1,name);
+                        pstmt2.executeUpdate();
+                    }
+                }
+            }
         }
     }
 }

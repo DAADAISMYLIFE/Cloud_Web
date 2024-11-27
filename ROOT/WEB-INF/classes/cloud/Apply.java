@@ -1,5 +1,3 @@
-package cloud;
-
 public class Apply {
     private String name;
     private String studentNumber;

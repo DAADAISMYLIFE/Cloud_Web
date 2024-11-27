@@ -1,4 +1,3 @@
-package cloud;
 
 public class Noti {
     private int id;

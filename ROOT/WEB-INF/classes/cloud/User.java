@@ -1,4 +1,3 @@
-package cloud;
 
 public class User {
     private int id;

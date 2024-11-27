@@ -1,4 +1,3 @@
-package cloud;
 
 public class Activity {
     private int id;

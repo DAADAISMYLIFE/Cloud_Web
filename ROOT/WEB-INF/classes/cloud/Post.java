@@ -1,4 +1,3 @@
-package cloud;
 
 public class Post {
     private int id;
