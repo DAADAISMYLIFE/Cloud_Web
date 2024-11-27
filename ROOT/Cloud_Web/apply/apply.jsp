@@ -15,6 +15,7 @@
         String department = request.getParameter("department");
         String introduction = request.getParameter("introduction");
         String interest = request.getParameter("interest");
+        
 
         // 새로운 Apply 객체 생성
         Apply apply = new Apply();
@@ -27,7 +28,7 @@
         apply.setInterest(interest);
 
         //TODO : 로그인된 유저의 id 넣어주기 (userId);
-        apply.setUserId(interest);
+        apply.setUserId(session.getAttribute("userId").toString());
     
 
         // DAO로 DB에 추가

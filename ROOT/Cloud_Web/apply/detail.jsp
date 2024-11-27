@@ -7,9 +7,12 @@
 String applyId = request.getParameter("id");
 ApplyDAO applyDAO = new ApplyDAO(DBConnection.getConnection());
 int id = Integer.parseInt(applyId);
+
 if (request.getMethod().equalsIgnoreCase("POST")) {
     if(applyId != null) {
         applyDAO.updateisMember(id);
+        applyDAO.updateisApply(id);
+        out.println("<script> alert('승인되었습니다.'); location.href='/Cloud_Web/apply/list.jsp'; </script>");
     }
 }
 %>
