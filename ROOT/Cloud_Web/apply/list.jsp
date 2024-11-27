@@ -1,3 +1,4 @@
+<%@ include file="/Cloud_Web/includes/sessionAdminCheck.jsp" %>
 <%@ page import="java.util.List" %>
 <%@ page import="cloud.Apply, cloud.DBConnection, cloud.ApplyDAO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -52,7 +53,7 @@
                         <tbody>
                             <% if (applies.size() == 0) {%>
                                 <tr>
-                                   <td colspan="4">아직 등록된 공지사항이 없습니다.</td>
+                                   <td colspan="4">아직 등록된 신청서가 없습니다.</td>
                                 </tr>
                             <% } else { %>
                             <% for (Apply apply : applies) { %>

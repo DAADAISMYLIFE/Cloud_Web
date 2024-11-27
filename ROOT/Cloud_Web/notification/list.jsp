@@ -1,5 +1,4 @@
-<%@ page import="javax.servlet.http.HttpSession" %>
-<%@ include file="/Cloud_Web/login/sessionCheck.jsp" %>
+<%@ include file="/Cloud_Web/includes/sessionCheck.jsp" %>
 <%@ page import="java.util.List" %>
 <%@ page import="cloud.NotiDAO, cloud.DBConnection, cloud.Noti" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -74,6 +73,17 @@
                     </table>
                 </div>
                 <div class="bottom_elements">
+                
+                    <% 
+                    if (session != null && Boolean.TRUE.equals(session.getAttribute("isAdmin"))) { 
+                    %>
+                        <div class="list_bottom_btnbox">
+                        <a href="write.jsp"><button>글쓰기</button></a>
+                        </div>
+                    <% 
+                    }
+                    %>
+
                     <div class="bottom_paging_box">
                         <span>
                             <% if (currentPage > 1) { %>

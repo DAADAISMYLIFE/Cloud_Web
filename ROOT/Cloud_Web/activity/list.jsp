@@ -76,6 +76,17 @@
             </div>
 
             <div class="bottom_elements">
+            
+                <% 
+                if (session != null && Boolean.TRUE.equals(session.getAttribute("isAdmin"))) { 
+                %>
+                    <div class="list_bottom_btnbox">
+                    <a href="write.jsp"><button>글쓰기</button></a>
+                    </div>
+                <% 
+                }
+                %>
+                
                 <div class="bottom_paging_box">
                         <span>
                             <% if (currentPage > 1) { %>

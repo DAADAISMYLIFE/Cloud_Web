@@ -1,3 +1,4 @@
+<%@ include file="/Cloud_Web/includes/sessionAdminCheck.jsp" %>
 <%@ page import="cloud.NotiDAO, cloud.DBConnection, cloud.Noti" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.io.*, com.oreilly.servlet.MultipartRequest, com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>

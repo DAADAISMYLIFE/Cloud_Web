@@ -181,4 +181,9 @@ public class UserDAO {
         }
         return 0;
     }
+
+    // TODO isUserIdExists 메서드 참고하여
+    // 1. isAdmin인지 가져오기
+    // 2. isMember인지 가져오기
+    // 추가적으로 세션에다가 그런 정보는 잘 안넣어두긴함 ㅋㅋ <= 해킹 위협, 탈취
 }

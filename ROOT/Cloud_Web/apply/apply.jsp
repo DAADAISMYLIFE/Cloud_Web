@@ -1,3 +1,4 @@
+<%@ include file="/Cloud_Web/includes/sessionCheck.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ page import="cloud.Apply, cloud.DBConnection, cloud.ApplyDAO" %>
 

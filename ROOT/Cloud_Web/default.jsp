@@ -38,7 +38,15 @@
     <nav id="nav1">
         <ul class="nav-menu">
             <li><a href="/Cloud_Web/introduce.jsp">동아리 소개</a></li>
-            <li><a href="/Cloud_Web/apply/apply.jsp">가입신청</a></li>
+            <% 
+            if (session != null && Boolean.TRUE.equals(session.getAttribute("isAdmin"))) { 
+            %>
+                <li><a href="/Cloud_Web/apply/list.jsp">가입신청 관리</a></li>
+            <% 
+            } else { 
+            %>
+                <li><a href="/Cloud_Web/apply/apply.jsp">가입신청</a></li>
+            <% } %>
             <li><a href="/Cloud_Web/activity/list.jsp">활동내역</a></li>
             <li><a href="/Cloud_Web/notification/list.jsp">공지사항</a></li>
             <li><a href="/Cloud_Web/community/list.jsp">커뮤니티</a></li>

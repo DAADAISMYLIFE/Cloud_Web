@@ -76,7 +76,7 @@
                 document.querySelectorAll(".error-msg").forEach(el => {
                     el.classList.remove("visible");
                 });
-
+                
                 const pwPattern = /^[a-zA-Z0-9`~!@#$%^&*()_+\-=\[\]\{}|;':",./<>?]{8,20}$/;
                 const phonePattern = /^010-[0-9]{4}-[0-9]{4}$/;
 
