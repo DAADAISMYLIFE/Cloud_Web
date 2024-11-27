@@ -22,6 +22,8 @@
                     session.setAttribute("userId", user.getUserId()); // 세션에 userId 저장
                     session.setAttribute("userName", user.getName()); // 세션에 사용자 이름 저장
                     session.setAttribute("userNickName", user.getNickname()); // 세션에 사용자 닉네임 저장
+                    session.setAttribute("phone",user.getPhone()); // 세션에 사용자 전화번호 저장
+                    session.setAttribute("email",user.getEmail()); // 세션에 사용자 이메일 저장
                     session.setAttribute("isMember", user.getMember()); // 세션에 사용자 닉네임 저장
                     session.setAttribute("isAdmin", user.getAdmin()); // 세션에 사용자 닉네임 저장
                     session.setAttribute("isApply", isApply); // 세션에 사용자 승인 여부 저장

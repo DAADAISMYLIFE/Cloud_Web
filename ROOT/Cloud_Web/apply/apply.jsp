@@ -74,7 +74,7 @@
                             </tr>
 
                             <tr>
-                                <td><input type="text" id="name" name="name" placeholder="홍길동"></td>
+                                <td><input type="text" id="name" name="name" value="<%= session.getAttribute("userName")%>" readonly></td>
                                 <td><input type="text" id="studentId" name="studentId" placeholder="20000000"></td>
                             </tr>
 
@@ -85,8 +85,8 @@
                             </tr>
 
                             <tr>
-                                <td><input type="tel" id="phone" name="phone" placeholder="010-1234-5678"></td>
-                                <td><input type="email" id="email" name="email" placeholder="example@email.com"></td>
+                                <td><input type="tel" id="phone" name="phone" value="<%=session.getAttribute("phone")%>" readonly></td>
+                                <td><input type="email" id="email" name="email" value="<%=session.getAttribute("email")%>" readonly></td>
                             </tr>
 
                             <tr>
