@@ -102,6 +102,24 @@ public class UserDAO {
         return user;
     }
 
+    // 아이디 찾기의 결과로 나올 결과물
+    public String foundUserId(String name, String email, String phone) throws SQLException {
+        String sql = "SELECT userId FROM user WHERE name = ? and email = ? and phone = ?";
+        String userId = null;
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, name);
+            pstmt.setString(2, email);
+            pstmt.setString(3, phone);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    userId = rs.getString("userId");
+                }
+            }
+        }
+        return userId;
+    }
+
     // 아이디 중복 여부
     public boolean isUserIdExists(String userId) throws SQLException {
         String sql = "SELECT COUNT(*) FROM user WHERE userId = ?";
@@ -130,6 +148,16 @@ public class UserDAO {
             pstmt.setBoolean(8, user.getMember());
             pstmt.setBoolean(9, user.getAdmin());
             pstmt.setInt(10, user.getId());
+            pstmt.executeUpdate();
+        }
+    }
+
+    // UPDATE
+    public void updatePassword(String password, String userId) throws SQLException {
+        String sql = "UPDATE user SET password = ? WHERE userId = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, password);
+            pstmt.setString(2, userId);
             pstmt.executeUpdate();
         }
     }
