@@ -1,35 +1,31 @@
 body {
-  background-color: #f9f9f9;
+  background-color: #fff8e1; /* 따뜻한 배경 색상 */
 }
-
 
 /*
 가입화면 전체 부분
 */
 .request {
   position: relative;
-  /* 자식 요소의 위치를 상대적으로 설정 */
   width: 1280px;
   height: 600px;
   margin: auto;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ddd;
-  background-color: #fff;
+  border: 1px solid #ffccbc; /* 테두리 색상 변경 */
+  background-color: #ffffff; /* 배경 색상 유지 */
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
 }
 
 /*
-  가입 화면 내 이미지 부분
-  */
+가입 화면 내 이미지 부분
+*/
 .inviteImg {
   position: absolute;
-  /* 절대 위치 지정 */
   text-align: center;
   white-space: nowrap;
-  /* 줄바꿈 방지 */
   left: 5%;
 }
 
@@ -39,27 +35,24 @@ body {
 }
 
 /*
-  가입 화면 내 텍스트 부분
-  */
+가입 화면 내 텍스트 부분
+*/
 .inviteMain {
   position: absolute;
-  /* 절대 위치 지정 */
   display: flex;
   align-items: center;
   justify-content: center;
-  /* 중앙 정렬을 유지 */
   width: 600px;
   height: 550px;
-  border: 1px solid #ddd;
+  border: 1px solid #ffccbc; /* 테두리 색상 변경 */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   right: 5%;
 }
 
 .inviteMain .inviteTable {
   width: 100%;
-  /* 테이블을 중앙에 고정 */
-  padding-left : 50px;
-  margin-left : 10px;
+  padding-left: 50px;
+  margin-left: 10px;
 }
 
 .inviteTable td {
@@ -68,10 +61,7 @@ body {
 
 .inviteTable td label {
   text-align: left;
-  /* 레이블만 왼쪽 정렬 */
 }
-
-
 
 .inviteMain textarea {
   resize: none;
@@ -80,19 +70,12 @@ body {
 .inviteMain label {
   font-size: 16px;
   font-weight: bold;
-}
-
-.inviteTable td {
-  width: 300px;
-}
-
-.inviteTable td label {
-  text-align: right;
+  color: #6d4c41; /* 따뜻한 갈색으로 변경 */
 }
 
 .inviteTable input {
   font-size: 13px;
-  border: 2px solid lightgrey;
+  border: 2px solid #ccc; /* 테두리 색상 변경 */
   border-radius: 8px;
   outline: none;
   width: 75%;
@@ -102,21 +85,20 @@ body {
 
 .inviteTable textarea {
   font-size: 13px;
-  border: 2px solid lightgrey;
+  border: 2px solid #ccc; /* 테두리 색상 변경 */
   border-radius: 8px;
   outline: none;
   width: 87%;
   height: 90px;
   text-indent: 15px;
-  padding-top : 10px;
+  padding-top: 10px;
   resize: none;
 }
 
 .submitBtn {
-  position:absolute;
-  /* 절대 위치 지정 */
-  padding:12px;
-  background-color: #4285f4;
+  position: absolute;
+  padding: 12px;
+  background-color: #ffab91; /* 버튼 색상 변경 */
   color: white;
   border: none;
   border-radius: 4px;
@@ -126,6 +108,6 @@ body {
   bottom: 2%;
 }
 
-.submitBtn {
-  background-color: #357ae8;
+.submitBtn:hover {
+  background-color: #ffccbc; /* hover 색상 변경 */
 }

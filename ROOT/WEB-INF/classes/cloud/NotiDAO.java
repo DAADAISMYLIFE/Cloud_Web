@@ -88,6 +88,27 @@ public class NotiDAO {
         return notis;
     }
 
+    // 최신 공지사항 n개 ID와 제목만 조회
+    public List<Noti> getLatestNotis(int limit) throws SQLException {
+        String sql = "SELECT id, title FROM noti ORDER BY createdAt DESC LIMIT ?";
+        List<Noti> notis = new ArrayList<>();
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, limit); // 최신 글 개수 설정
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    Noti noti = new Noti();
+                    noti.setId(rs.getInt("id"));
+                    noti.setTitle(rs.getString("title"));
+                    notis.add(noti);
+                }
+            }
+        }
+        return notis;
+    }
+
+
     // 전체 게시글 수 가져오는 메서드 추가
     public int getTotalNotis() {
         int totalNoti = 0;
