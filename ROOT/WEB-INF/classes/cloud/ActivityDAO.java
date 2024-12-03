@@ -89,6 +89,26 @@ public class ActivityDAO {
         return activities;
     }
 
+    // 최신글 n개 ID와 제목만 조회
+    public List<Activity> getLatestActivies(int limit) throws SQLException {
+        String sql = "SELECT id, title FROM activity ORDER BY createdAt DESC LIMIT ?";
+        List<Activity> activities = new ArrayList<>();
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, limit); // 최신 글 개수 설정
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    Activity activity = new Activity();
+                    activity.setId(rs.getInt("id"));
+                    activity.setTitle(rs.getString("title"));
+                    activities.add(activity);
+                }
+            }
+        }
+        return activities;
+    }
+
     // 전체 게시글 수 가져오는 메서드 추가
     public int getTotalActivity() {
         int totalActivity = 0;

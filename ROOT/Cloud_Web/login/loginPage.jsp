@@ -28,7 +28,7 @@
                     session.setAttribute("isAdmin", user.getAdmin()); // 세션에 어드민여부 저장
                     session.setAttribute("isApply", isApply); // 세션에 사용자 승인 여부 저장
                     
-                    out.println("<script> alert('로그인 성공.'); location.href='/Cloud_Web/default.jsp'; </script>"); // 로그인 성공 시 default 화면으로 이동
+                    out.println("<script> alert('로그인 성공.'); location.href='/Cloud_Web/index.jsp'; </script>"); // 로그인 성공 시 default 화면으로 이동
                 } else {
                     out.println("<script> alert('비밀번호가 일치하지 않습니다.'); history.back();</script>");
                 }

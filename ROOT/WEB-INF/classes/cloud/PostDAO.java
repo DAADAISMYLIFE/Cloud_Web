@@ -60,6 +60,26 @@ public class PostDAO {
         return post;
     }
 
+    // 최신 게시글 n개 조회
+    public List<Post> getLatestPosts(int limit) throws SQLException {
+        String sql = "SELECT id, title FROM post ORDER BY createdAt DESC LIMIT ?";
+        List<Post> posts = new ArrayList<>();
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, limit); // 최신 글 개수 설정
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    Post post = new Post();
+                    post.setId(rs.getInt("id"));
+                    post.setTitle(rs.getString("title"));
+                    posts.add(post);
+                }
+            }
+        }
+        return posts;
+    }
+
     // 페이지네이션용
     public List<Post> getPosts(int page, int pageSize) throws SQLException {
         String sql = "SELECT * FROM post ORDER BY id DESC LIMIT ?, ?";
