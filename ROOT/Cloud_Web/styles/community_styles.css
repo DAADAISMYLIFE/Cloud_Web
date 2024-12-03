@@ -251,6 +251,7 @@ button:hover {
 form .button-container {
     display: flex;
     justify-content: flex-end;
+    gap : 20px;
 }
 .ub-content:hover {
     background-color: rgba(0, 0, 0, 0.1);
