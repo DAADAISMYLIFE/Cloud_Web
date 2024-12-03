@@ -20,6 +20,14 @@
     text-align: center;
 }
 
+.container .help {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 15px;
+    gap : 20px;
+}
+
 h3 {
     font-size: 35px;
     margin-bottom: 20px;
@@ -36,7 +44,7 @@ h3 {
     width: 98%;
     height: 50px;
     text-indent: 15px;
-    margin-top: 30px;
+    margin-top: 15px;
     margin-bottom: 20px;
     background-color: #ffffff; /* 입력창 배경 색상 */
 }

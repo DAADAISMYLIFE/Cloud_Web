@@ -49,7 +49,7 @@
                         <tbody>
                             <% if (posts.size() == 0) {%>
                                 <tr>
-                                   <td colspan="4">아직 등록된 공지사항이 없습니다.</td>
+                                   <td colspan="4">아직 등록된 게시물이 없습니다.</td>
                                 </tr>
                             <% } else { %>
                             <% for (Post post : posts) { %>

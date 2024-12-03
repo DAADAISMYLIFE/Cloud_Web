@@ -65,7 +65,7 @@
                             <input type="submit" value="Login" />
                         </div>
                     </form>
-                    <div>
+                    <div class="help">
                         <a href="/Cloud_Web/login/foundId.jsp" id="login">아이디 찾기</a>
                         <a href="/Cloud_Web/login/foundPw.jsp" id="signup">비밀번호 찾기</a>
                         <a href="/Cloud_Web/signup/signup.jsp" id="signup">회원가입</a>

@@ -151,6 +151,8 @@
                 </div>
                 <div class="flex-item">
                     <h3>최근 Q&A</h3>
+                    <ul>
+                    
                     <%
                         // 최신 게시글 가져오기
                         PostDAO postDAO = new PostDAO(DBConnection.getConnection());
@@ -165,6 +167,8 @@
                     <%
                         }
                     %>
+                    </ul>
+
                 </div>
             </div>
         </section>
