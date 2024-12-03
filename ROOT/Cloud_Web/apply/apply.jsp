@@ -42,7 +42,7 @@
         ApplyDAO applyDao = new ApplyDAO(DBConnection.getConnection());
         applyDao.createApply(apply);
 
-        out.println("<script> alert('신청이 완료되었습니다.'); location.href='/Cloud_Web/apply/apply.jsp'; </script>");
+        out.println("<script> alert('신청이 완료되었습니다.'); location.href='/Cloud_Web/default.jsp'; </script>");
         }
 
     }
