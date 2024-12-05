@@ -53,7 +53,7 @@
             <br>
             <div class="button-container">
                 <button type="submit" class="button_submit">등록</button>
-                <button type="reset" class="button_cancle">취소</button>
+                <button type="button"class="button_cancle" onclick="history.back()">뒤로가기</button>
             </div>
         </form>
     </main>
