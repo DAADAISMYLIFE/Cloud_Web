@@ -4,6 +4,7 @@ public class Post {
     private String title;
     private String content;
     private String user;
+    private String userId;
     private String createdAt;
 
     // Getter와 Setter
@@ -13,6 +14,8 @@ public class Post {
     public void setTitle(String title) { this.title = title; }
     public String getContent() { return content; }
     public void setContent(String content) { this.content = content; }
+    public String getUserId() { return userId; }
+    public void setUserId(String userId) { this.userId = userId; }
     public String getUser() { return user; }
     public void setUser(String user) { this.user = user; }
     public String getCreatedAt() { return createdAt; }
