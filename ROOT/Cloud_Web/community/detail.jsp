@@ -49,7 +49,7 @@
         </div>
         <hr>
         <div class="post-content">
-            <p><%= post.getContent() %></p>
+            <pre><%= post.getContent() %></pre>
         </div>
         <button onclick="history.back()">뒤로가기</button>
         <%

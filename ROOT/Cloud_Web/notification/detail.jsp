@@ -49,7 +49,7 @@
             </div>
             <hr>
             <div class="noti-content">
-            <p><%= noti.getContent() %></p>
+            <pre><%= noti.getContent() %></pre>
             <% if (noti.getImagePath() != null && !noti.getImagePath().isEmpty()) { %>
             <p>
                 <img src="<%= noti.getImagePath() %>" alt="Uploaded Image" style="max-width: 100%;">

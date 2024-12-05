@@ -49,7 +49,7 @@
             </div>
             <hr>
             <div class="activity-content">
-            <p><%= activity.getContent() %></p>
+            <pre><%= activity.getContent() %></pre>
             <div class="activity-img">
             <% if (activity.getImagePath() != null && !activity.getImagePath().isEmpty()) { %>
             <p>
