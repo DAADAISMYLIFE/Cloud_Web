@@ -21,6 +21,14 @@ body {
     /* 부드러운 파란색 배경 색상 */
 }
 
+
+pre {
+    display: block;
+    font-family: 'NanumSquareL', 'NanumSquareB';
+    white-space: pre;
+    margin: 1em 0;
+}
+
 /* 메인 콘텐츠 */
 main {
     margin: 20px auto;
@@ -263,7 +271,7 @@ button:hover {
     /* hover 색상 변경 */
 }
 
-.button_delete{
+.button_delete {
     background-color: #fd5757;
 }
 
