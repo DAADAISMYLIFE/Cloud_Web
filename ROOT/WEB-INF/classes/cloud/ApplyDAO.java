@@ -80,6 +80,32 @@ public class ApplyDAO {
         return apply;
     }
 
+    public Apply getApplyByUserId(String userId) throws SQLException{
+        String sql = "SELECT * FROM apply WHERE userId = ?";
+        Apply apply = null;
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, userId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    apply = new Apply();
+                    apply.setId(rs.getInt("id"));
+                    apply.setName(rs.getString("name"));
+                    apply.setStudentNumber(rs.getString("studentNumber"));
+                    apply.setPhone(rs.getString("phone"));
+                    apply.setEmail(rs.getString("email"));
+                    apply.setDepartment(rs.getString("department"));
+                    apply.setIntroduction(rs.getString("introduction"));
+                    apply.setInterest(rs.getString("interest"));
+                    apply.setCreatedAt(rs.getString("createdAt"));
+                    // 승인여부, 유저아이디
+                    apply.setIsApply(rs.getInt("isApply"));
+                    apply.setUserId(rs.getString("userId"));
+                }
+            }
+        }
+        return apply;
+    }
+
     // 페이지네이션용
     public List<Apply> getApplies(int page, int pageSize) throws SQLException {
         String sql = "SELECT * FROM apply ORDER BY id DESC LIMIT ?, ?";
@@ -144,7 +170,7 @@ public class ApplyDAO {
 
     // UPDATE
     public void updateApply(Apply apply) throws SQLException {
-        String sql = "UPDATE apply SET name = ?, studentNumber = ?, phone = ?, email = ?, department = ?, introduction = ?, interest = ? WHERE id = ?";
+        String sql = "UPDATE apply SET name = ?, studentNumber = ?, phone = ?, email = ?, department = ?, introduction = ?, interest = ?, createdAt = Now() WHERE id = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, apply.getName());
             pstmt.setString(2, apply.getStudentNumber());
@@ -191,4 +217,21 @@ public class ApplyDAO {
             pstmt.executeUpdate();
         }
     }
+
+    public boolean isExistApply(String userId) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM apply WHERE userId = ?";
+        
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, userId);
+            
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0; // COUNT 결과가 0보다 큰지 확인
+                }
+            }
+        }
+        
+        return false;
+    }
+    
 }

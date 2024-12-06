@@ -28,6 +28,7 @@ Boolean isMember = null;
             if (session != null && session.getAttribute("userId") != null) { 
                 String userName = (String) session.getAttribute("userName");
                 isMember = (Boolean) session.getAttribute("isMember");
+                
             %>
                 안녕하세요,  <%= userName %> 님
                 <a href="/Cloud_Web/login/logout.jsp" id="logout">로그아웃</a>
@@ -43,14 +44,28 @@ Boolean isMember = null;
     </header>
                 
     <script>
-        function alreadyApply(event) {
-            var isMember = "<%= isMember %>";
-            if (isMember == "true") {
+    function alreadyApply(event) {
+        <%
+        ApplyDAO myApplyDAO = new ApplyDAO(DBConnection.getConnection());
+        boolean isRequest = myApplyDAO.isExistApply((String) session.getAttribute("userId"));
+        %>
+
+        var isMember = "<%= isMember %>";
+        var isRequest = "<%= isRequest %>";
+        
+        if (isMember == "true") {
             alert("이미 가입이 완료되었습니다.");
             event.preventDefault();
+        } else {
+            if (isRequest == "true") {
+                var userConfirmed = confirm("이미 작성한 신청서가 있습니다. 불러오시겠습니까?");
+                if (!userConfirmed) {
+                    event.preventDefault(); // 사용자가 '아니오'를 선택한 경우 폼 제출을 막음
+               
+                }
             }
         }
-
+   
         function checkMember(event){
             var isMember = "<%= isMember %>";
             if(isMember == "false"){
@@ -58,6 +73,8 @@ Boolean isMember = null;
                 event.preventDefault();
             }
         }
+
+    }
     </script>     
  
 
