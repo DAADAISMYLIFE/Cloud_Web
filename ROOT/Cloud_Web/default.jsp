@@ -79,7 +79,7 @@ Boolean isMember = null;
             <li><a href="/Cloud_Web/activity/list.jsp">활동내역</a></li>
             <li><a href="/Cloud_Web/notification/list.jsp">공지사항</a></li>
             <li><a href="/Cloud_Web/community/list.jsp" onclick="checkMember(event)">커뮤니티</a></li>
-            <li><a href="/Cloud_Web/Openai.jsp" onclick="checkMember(event)">OpenAI</a></li>
+            <li><a href="/Cloud_Web/openai/openai.jsp" onclick="checkMember(event)">OpenAI</a></li>
         </ul>
     </nav>
 </body>
