@@ -11,6 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지사항</title>
     <link rel="stylesheet" href="/Cloud_Web/styles/community_styles.css"> <!-- CSS 파일 링크 -->
+    <script>
+        function confirmDelete() {
+            return confirm("정말 삭제하시겠습니까? 삭제된 글은 복구할 수 없습니다.");
+        }
+    </script>
 </head>
 <body>
     <%@ include file="/Cloud_Web/default.jsp" %>
@@ -26,6 +31,15 @@
             Activity activity = activityDAO.getActivityById(id);
              
             if (activity != null) {
+                if (request.getMethod().equalsIgnoreCase("POST")) {
+                        request.setCharacterEncoding("UTF-8");
+                        // 작성자이거나 관리자인 경우 삭제 처리
+                        if (Boolean.TRUE.equals(session.getAttribute("isAdmin"))) {
+                            activityDAO.deleteActivity(id);
+                            response.sendRedirect("list.jsp");
+                            return; // 리다이렉트 이후 추가 렌더링 방지
+                        }
+                    }
     %>
     <div class="activity-details">
             <h2 class="activity-title"><%= activity.getTitle() %></h2>
@@ -35,7 +49,7 @@
             </div>
             <hr>
             <div class="activity-content">
-            <p><%= activity.getContent() %></p>
+            <pre><%= activity.getContent() %></pre>
             <div class="activity-img">
             <% if (activity.getImagePath() != null && !activity.getImagePath().isEmpty()) { %>
             <p>
@@ -45,6 +59,14 @@
             <% } %>           
             </div>
             <button onclick="history.back()">뒤로가기</button>
+            <%
+                // 작성자이거나 관리자일 경우 삭제 버튼 표시
+                if (Boolean.TRUE.equals(session.getAttribute("isAdmin"))) {
+            %>
+            <form method="post" onsubmit="return confirmDelete();">
+                <button type="submit" class="button_delete">글 삭제</button>
+            </form>
+            <% } %>
     </div>
     <% } else { %>
             <p>해당 공지사항을 찾을 수 없습니다.</p>

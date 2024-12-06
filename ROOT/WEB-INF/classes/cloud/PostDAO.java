@@ -12,11 +12,12 @@ public class PostDAO {
 
     // CREATE
     public void createPost(Post post) throws SQLException {
-        String sql = "INSERT INTO post (title, content, user, createdAt) VALUES (?, ?, ?, NOW())";
+        String sql = "INSERT INTO post (title, content, user, userId, createdAt) VALUES (?, ?, ?, ?, NOW())";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, post.getTitle());
             pstmt.setString(2, post.getContent());
             pstmt.setString(3, post.getUser());
+            pstmt.setString(4, post.getUserId());
             pstmt.executeUpdate();
         }
     }
@@ -33,6 +34,7 @@ public class PostDAO {
                 post.setTitle(rs.getString("title"));
                 post.setContent(rs.getString("content"));
                 post.setUser(rs.getString("user"));
+                post.setUserId(rs.getString("userId"));
                 post.setCreatedAt(rs.getString("createdAt"));
                 posts.add(post);
             }
@@ -53,6 +55,7 @@ public class PostDAO {
                     post.setTitle(rs.getString("title"));
                     post.setContent(rs.getString("content"));
                     post.setUser(rs.getString("user"));
+                    post.setUserId(rs.getString("userId"));
                     post.setCreatedAt(rs.getString("createdAt"));
                 }
             }
@@ -96,6 +99,7 @@ public class PostDAO {
                     post.setTitle(rs.getString("title"));
                     post.setContent(rs.getString("content"));
                     post.setUser(rs.getString("user"));
+                    post.setUserId(rs.getString("userId"));
                     post.setCreatedAt(rs.getString("createdAt")); // Timestamp로 변경
                     posts.add(post);
                 }

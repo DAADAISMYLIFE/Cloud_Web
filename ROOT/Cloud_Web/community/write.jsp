@@ -12,12 +12,14 @@
         String title = request.getParameter("title");
         String content = request.getParameter("content");
         String user = (String) session.getAttribute("userNickName");
+        String userId = (String) session.getAttribute("userId");
 
         // 새로운 게시글 객체 생성
         Post post = new Post();
         post.setTitle(title);
         post.setContent(content);
         post.setUser(user);
+        post.setUserId(userId);
 
         // DAO로 DB에 추가
         PostDAO postDAO = new PostDAO(DBConnection.getConnection());
@@ -51,7 +53,7 @@
             <br>
             <div class="button-container">
                 <button type="submit" class="button_submit">등록</button>
-                <button type="reset" class="button_cancle">취소</button>
+                <button type="button"class="button_cancle" onclick="history.back()">뒤로가기</button>
             </div>
         </form>
     </main>
