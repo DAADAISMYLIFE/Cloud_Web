@@ -75,7 +75,13 @@
     <main>
         <section class="intro">
             <div class="banner-container">
-                <img id="banner" src="/Cloud_Web/images/coding_banner3.jpg" alt="코딩 동아리 배너" style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px;">
+            <% if (session != null && Boolean.TRUE.equals(session.getAttribute("isMember"))) { %>
+                <a href="/Cloud_Web/community/list.jsp">
+            <% } else { %>
+                <a href="/Cloud_Web/apply/apply.jsp">
+            <% } %>
+            <img id="banner" src="/Cloud_Web/images/coding_banner3.jpg" alt="코딩 동아리 배너" style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px;">
+            </a>
             </div>
             <p>우리 코딩 동아리는 코딩 테스트 준비를 위한 스터디 그룹입니다. 다양한 프로그래밍 언어를 익히고, 실력을 향상시키기 위해 함께 노력합니다.</p>
         </section>
@@ -143,11 +149,6 @@
 
                 </div>
             </div>
-        </section>
-
-        <section class="call-to-action">
-            <h2>가입 안내</h2>
-            <p><a href="/Cloud_Web/apply/apply.jsp" class="apply-btn">가입 신청하기</a></p>
         </section>
     </main>
 
