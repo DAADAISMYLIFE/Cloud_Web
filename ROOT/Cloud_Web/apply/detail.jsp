@@ -61,17 +61,14 @@ if (request.getMethod().equalsIgnoreCase("POST")) {
              <div class="apply-interest"> <h2> 관심분야 </h2> 
             <p><%= apply.getInterest() %></p>
              </div>
+            
+    </div>
 
-            
-           
-            <form method="post">
-                <div class="button_container">
-                <button onclick="history.back()">뒤로가기</button>
-                <input class="submit_btn" type="submit" value="승인" >
-                </div>
-            </form>
-            
-            
+    <div class="button_container">
+        <button onclick="history.back()">뒤로가기</button>
+        <form method="post">
+            <input class="submit_btn" type="submit" value="승인" >
+        </form>
     </div>
     <% } else { %>
             <p>해당 게시글을 찾을 수 없습니다.</p>
