@@ -25,7 +25,7 @@ body {
 pre {
     display: block;
     font-family: 'NanumSquareL', 'NanumSquareB';
-    white-space: pre;
+    white-space: pre-wrap;
     margin: 1em 0;
 }
 
