@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'NanumSquareB';
+    src: url('../fonts/NanumSquareB.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'NanumSquareL';
+    src: url('../fonts/NanumSquareL.otf') format('opentype');
+}
+
+body {
+    font-family: 'NanumSquareL', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f4ff; /* 부드러운 파란색 배경 색상 */
+}
+
+header {
+    background-color: #bbdefb; /* 헤더 배경 색상 (연한 파란색) */
+    border-bottom: 1px solid #90caf9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+}
+
+#logo img {
+    width: 150px;
+    height: auto;
+}
+
+#auth {
+    display: flex;
+    align-items: center;
+    color: #0d47a1; /* 어두운 파란색 */
+    gap: 15px;
+}
+
+#auth a {
+    text-decoration: none;
+    color: #1976d2; /* 링크 색상 */
+    font-size: 16px;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#auth a:hover {
+    background-color: #90caf9; /* hover 배경 색상 (연한 파란색) */
+    color: #ffffff; /* hover 텍스트 색상 */
+    border-color: #1976d2; /* hover 테두리 색상 (어두운 파란색) */
+}
+
+nav {
+    background-color: #bbdefb; /* 네비게이션 배경 색상 (연한 파란색) */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 1280px;
+    padding: 10px 20px;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-menu li {
+    flex: 1;
+    text-align: center;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: #1976d2; /* 링크 색상 (어두운 파란색) */
+    font-size: 18px;
+    font-family: 'NanumSquareB', Arial, sans-serif;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-menu li a:hover {
+    background-color: #bbdefb; /* hover 배경 색상 (연한 파란색) */
+    color: #ffffff; /* hover 텍스트 색상 */
+    font-weight: bold;
+}

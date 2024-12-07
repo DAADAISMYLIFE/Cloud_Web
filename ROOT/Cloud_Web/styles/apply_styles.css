@@ -1,0 +1,114 @@
+body {
+  background-color: #fff8e1; /* 따뜻한 배경 색상 */
+}
+
+/*
+가입화면 전체 부분
+*/
+
+.request {
+  position: relative;
+  width: 1280px;
+  height: 600px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ffccbc; /* 테두리 색상 변경 */
+  background-color: #ffffff; /* 배경 색상 유지 */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+/*
+가입 화면 내 이미지 부분
+*/
+.inviteImg {
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+  left: 5%;
+}
+
+.inviteImg img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*
+가입 화면 내 텍스트 부분
+*/
+.inviteMain {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  height: 550px;
+  border: 1px solid #ffccbc; /* 테두리 색상 변경 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  right: 5%;
+}
+
+.inviteMain .inviteTable {
+  width: 100%;
+  padding-left: 50px;
+  margin-left: 10px;
+}
+
+.inviteTable td {
+  width: 300px;
+}
+
+.inviteTable td label {
+  text-align: left;
+}
+
+.inviteMain textarea {
+  resize: none;
+}
+
+.inviteMain label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #6d4c41; /* 따뜻한 갈색으로 변경 */
+}
+
+.inviteTable input {
+  font-size: 13px;
+  border: 2px solid #ccc; /* 테두리 색상 변경 */
+  border-radius: 8px;
+  outline: none;
+  width: 75%;
+  height: 30px;
+  text-indent: 15px;
+}
+
+.inviteTable textarea {
+  font-size: 13px;
+  border: 2px solid #ccc; /* 테두리 색상 변경 */
+  border-radius: 8px;
+  outline: none;
+  width: 87%;
+  height: 90px;
+  text-indent: 15px;
+  padding-top: 10px;
+  resize: none;
+}
+
+.submitBtn {
+  position: absolute;
+  padding: 12px;
+  background-color: #ffab91; /* 버튼 색상 변경 */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: auto;
+  right: 11%;
+  bottom: 2%;
+}
+
+.submitBtn:hover {
+  background-color: #ffccbc; /* hover 색상 변경 */
+}
