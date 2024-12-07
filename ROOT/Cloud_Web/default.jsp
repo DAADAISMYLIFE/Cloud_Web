@@ -65,6 +65,7 @@ Boolean isMember = null;
                 }
             }
         }
+    }
    
         function checkMember(event){
             var isMember = "<%= isMember %>";
@@ -73,8 +74,6 @@ Boolean isMember = null;
                 event.preventDefault();
             }
         }
-
-    }
     </script>     
  
 
