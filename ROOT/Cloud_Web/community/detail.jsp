@@ -33,10 +33,9 @@
                     if (request.getMethod().equalsIgnoreCase("POST")) {
                         request.setCharacterEncoding("UTF-8");
                         // 작성자이거나 관리자인 경우 삭제 처리
-                        if (post.getUserId().equals(sessionUserId) || (isAdmin != null && isAdmin)) {
+                        if ((post.getUserId()!=null &&post.getUserId().equals(sessionUserId)) || (isAdmin != null && isAdmin)) {
                             postDAO.deletePost(id);
                             response.sendRedirect("list.jsp");
-                            return; // 리다이렉트 이후 추가 렌더링 방지
                         }
                     }
     %>
