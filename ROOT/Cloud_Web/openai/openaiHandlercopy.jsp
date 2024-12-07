@@ -114,8 +114,6 @@ if (resultContent.contains("키워드:")) {
 } else {
     summary = resultContent.trim(); // 만약 키워드가 없을 경우 전체 응답을 요약으로 처리
 }
-
-
         // 클라이언트에 JSON 응답
         JSONObject outputJson = new JSONObject();
         outputJson.put("summary", summary);
