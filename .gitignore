@@ -1,3 +1,4 @@
 ROOT/WEB-INF/lib/mysql-connector-j-9.1.0.jar
 ROOT/Cloud_Web/uploads
 ROOT/WEB-INF/token.properties
+*.class
