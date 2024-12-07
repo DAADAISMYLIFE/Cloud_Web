@@ -67,34 +67,6 @@
             overflow: hidden; /* 컨테이너 내에서만 이미지가 보이도록 설정 */
         }
     </style>
-    <script>
-        let currentBanner = 0;
-        const banners = [
-            "/Cloud_Web/images/coding_banner1.jpg",
-            "/Cloud_Web/images/coding_banner2.jpg"
-        ];
-
-        function changeBanner() {
-            const bannerElements = document.querySelectorAll(".banner");
-            bannerElements[currentBanner].classList.remove("active"); // 현재 배너 숨기기
-
-            currentBanner = (currentBanner + 1) % banners.length; // 다음 배너로 전환
-
-            bannerElements[currentBanner].classList.add("active"); // 새로운 배너 보이기
-        }
-
-        // 배너 요소 생성
-        const bannerContainer = document.querySelector(".banner-container");
-        banners.forEach((src, index) => {
-            const img = document.createElement("img");
-            img.src = src;
-            img.classList.add("banner");
-            if (index === 0) img.classList.add("active"); // 첫 번째 배너 활성화
-            bannerContainer.appendChild(img);
-        });
-
-        setInterval(changeBanner, 10000); // 10초마다 배너 변경
-    </script>
 </head>
 
 <body>
@@ -103,7 +75,13 @@
     <main>
         <section class="intro">
             <div class="banner-container">
-                <img id="banner" src="/Cloud_Web/images/coding_banner1.jpg" alt="코딩 동아리 배너" style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px;">
+            <% if (session != null && Boolean.TRUE.equals(session.getAttribute("isMember"))) { %>
+                <a href="/Cloud_Web/community/list.jsp">
+            <% } else { %>
+                <a href="/Cloud_Web/apply/apply.jsp">
+            <% } %>
+            <img id="banner" src="/Cloud_Web/images/coding_banner3.jpg" alt="코딩 동아리 배너" style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px;">
+            </a>
             </div>
             <p>우리 코딩 동아리는 코딩 테스트 준비를 위한 스터디 그룹입니다. 다양한 프로그래밍 언어를 익히고, 실력을 향상시키기 위해 함께 노력합니다.</p>
         </section>
@@ -171,11 +149,6 @@
 
                 </div>
             </div>
-        </section>
-
-        <section class="call-to-action">
-            <h2>가입 안내</h2>
-            <p><a href="/Cloud_Web/apply/apply.jsp" class="apply-btn">가입 신청하기</a></p>
         </section>
     </main>
 
